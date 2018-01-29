@@ -42,6 +42,13 @@ public class RunnerClass {
         System.out.println("");
         printer(SearchKthFromLast.searchKthFromLast(createLinkedList(),2));
 
+        /**
+         * Reverse Pairs
+         */
+        System.out.println("");
+        System.out.println("Reverse Pairs");
+        printer(ReversePairs.reversePairs(createLinkedList()));
+
 
 
     }
