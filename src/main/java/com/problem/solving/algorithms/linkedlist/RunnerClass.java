@@ -36,6 +36,11 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("Search nth node");
         printer(NthNodeSearch.searchNthNode(createLinkedList(),2));
+        /**
+         * Search kth from last
+         */
+        System.out.println("");
+        printer(SearchKthFromLast.searchKthFromLast(createLinkedList(),2));
 
 
 
