@@ -1,15 +1,44 @@
 package com.problem.solving.algorithms.linkedlist;
 
+import java.util.Objects;
+
 /**
  * Created by VijaySidhu on 1/28/2018.
  */
 public class RunnerClass {
 
     public static void main(String[] args) {
-        LoopDetector.printer(LoopDetector.removeLoopIfExist(createLinkedList()));
+
+        /**
+         * Reverse Linked List
+         */
+        System.out.println("");
+        printer(ReverseList.reverseList(createLinkedList()));
+
+
+        /**
+         * Middle Detector
+         */
+        System.out.println(" ");
+        System.out.println("Middle Element is "+(MiddleElementDetector.middleDetector(createLinkedList()).getData()));
+
+        /**
+         * Loop Detector with Floyd's cycle
+         */
+        printer(LoopDetector.removeLoopIfExist(createLinkedList()));
         System.out.println("");
         System.out.println("Creating and Removing loop.........");
-        LoopDetector.printer(LoopDetector.removeLoopIfExist(LoopDetector.createLoop(createLinkedList())));
+        printer(LoopDetector.removeLoopIfExist(LoopDetector.createLoop(createLinkedList())));
+
+        /**
+         * Nth Node Search
+         */
+        System.out.println("");
+        System.out.println("Search nth node");
+        printer(NthNodeSearch.searchNthNode(createLinkedList(),2));
+
+
+
     }
 
     private static Node createLinkedList() {
@@ -18,5 +47,15 @@ public class RunnerClass {
         Node headNext = new Node(2, nextNext);
         Node head = new Node(1, headNext);
         return head;
+    }
+
+    public static void printer(Node head) {
+        while (Objects.nonNull(head)) {
+            System.out.print(head.getData());
+            head = head.next;
+            if (Objects.nonNull(head)) {
+                System.out.print("-->");
+            }
+        }
     }
 }

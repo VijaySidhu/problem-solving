@@ -46,13 +46,5 @@ public class LoopDetector {
         return head;
     }
 
-    public static void printer(Node head) {
-        while (Objects.nonNull(head)) {
-            System.out.print(head.getData());
-            head = head.next;
-            if (Objects.nonNull(head)) {
-                System.out.print("-->");
-            }
-        }
-    }
+
 }
