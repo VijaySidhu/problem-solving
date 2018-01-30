@@ -15,9 +15,9 @@ public class IsPalindrome {
             Node previousOfMiddle = MiddleElementDetector.getPreviousOfSlowPointer();
             // Reverse Second Half
             Node secondHalf = ReverseList.reverseList(middleNode);
-            previousOfMiddle.next = null;
             //Compare two Lists
-            CompareTwoLists.IsSame(node,secondHalf);
+            boolean isPalindrome = CompareTwoLists.IsSame(node, secondHalf);
+            return isPalindrome;
         }
 
         return false;

@@ -68,11 +68,24 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("Alternate Node deletion");
         printer(AlternateNodesDeletion.recursiveDelete(createLinkedList()));
+        /**
+         * Is Palindrome
+         */
+        System.out.println("");
+        System.out.println("IsPalindrome");
+        System.out.println(IsPalindrome.isPalindrome(palindromeList()));
     }
 
     private static Node createLinkedList() {
         Node nextNextNext = new Node(4, null);
         Node nextNext = new Node(3, nextNextNext);
+        Node headNext = new Node(2, nextNext);
+        Node head = new Node(1, headNext);
+        return head;
+    }
+
+    private static Node palindromeList() {
+        Node nextNext = new Node(1, null);
         Node headNext = new Node(2, nextNext);
         Node head = new Node(1, headNext);
         return head;
