@@ -49,6 +49,20 @@ public class RunnerClass {
         System.out.println("Reverse Pairs");
         printer(ReversePairs.reversePairs(createLinkedList()));
 
+        /**
+         * Merge two sorted linked list
+         */
+        System.out.println("");
+        System.out.println("Merge Linked List");
+        printer(MergeSortedList.mergeSortedList(createLinkedList(),createLinkedList()));
+
+        /**
+         * Swap Given nodes
+         */
+        System.out.println("");
+        System.out.println("Swap given nodes");
+        printer(SwapGivenNodes.swapGivenNodes(createLinkedList(),2,3));
+
 
 
     }
