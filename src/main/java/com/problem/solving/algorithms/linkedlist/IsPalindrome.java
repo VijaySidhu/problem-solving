@@ -10,6 +10,15 @@ package com.problem.solving.algorithms.linkedlist;
 public class IsPalindrome {
 
     public static boolean isPalindrome(Node node) {
+        if (node != null && node.next != null) {
+            Node middleNode = MiddleElementDetector.middleDetector(node);
+            Node previousOfMiddle = MiddleElementDetector.getPreviousOfSlowPointer();
+            // Reverse Second Half
+            Node secondHalf = ReverseList.reverseList(middleNode);
+            previousOfMiddle.next = null;
+            //Compare two Lists
+            CompareTwoLists.IsSame(node,secondHalf);
+        }
 
         return false;
     }
