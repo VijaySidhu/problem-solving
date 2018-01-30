@@ -20,7 +20,7 @@ public class RunnerClass {
          * Middle Detector
          */
         System.out.println(" ");
-        System.out.println("Middle Element is "+(MiddleElementDetector.middleDetector(createLinkedList()).getData()));
+        System.out.println("Middle Element is " + (MiddleElementDetector.middleDetector(createLinkedList()).getData()));
 
         /**
          * Loop Detector with Floyd's cycle
@@ -35,12 +35,12 @@ public class RunnerClass {
          */
         System.out.println("");
         System.out.println("Search nth node");
-        printer(NthNodeSearch.searchNthNode(createLinkedList(),2));
+        printer(NthNodeSearch.searchNthNode(createLinkedList(), 2));
         /**
          * Search kth from last
          */
         System.out.println("");
-        printer(SearchKthFromLast.searchKthFromLast(createLinkedList(),2));
+        printer(SearchKthFromLast.searchKthFromLast(createLinkedList(), 2));
 
         /**
          * Reverse Pairs
@@ -54,17 +54,20 @@ public class RunnerClass {
          */
         System.out.println("");
         System.out.println("Merge Linked List");
-        printer(MergeSortedList.mergeSortedList(createLinkedList(),createLinkedList()));
+        printer(MergeSortedList.mergeSortedList(createLinkedList(), createLinkedList()));
 
         /**
          * Swap Given nodes
          */
         System.out.println("");
         System.out.println("Swap given nodes");
-        printer(SwapGivenNodes.swapGivenNodes(createLinkedList(),2,3));
-
-
-
+        printer(SwapGivenNodes.swapGivenNodes(createLinkedList(), 2, 3));
+        /**
+         * Alternate delete
+         */
+        System.out.println("");
+        System.out.println("Alternate Node deletion");
+        printer(AlternateNodesDeletion.recursiveDelete(createLinkedList()));
     }
 
     private static Node createLinkedList() {
