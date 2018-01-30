@@ -10,6 +10,7 @@ package com.problem.solving.algorithms.linkedlist;
 public class IsPalindrome {
 
     public static boolean isPalindrome(Node node) {
+
         return false;
     }
 
