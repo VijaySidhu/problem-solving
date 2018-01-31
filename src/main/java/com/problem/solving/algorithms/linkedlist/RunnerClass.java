@@ -80,6 +80,12 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("Insert node at given position");
         printer(InsertAtGivenPosition.insertAtGivenPosition(createLinkedList(),2,5));
+        /**
+         * Insert into Sorted list
+         */
+        System.out.println("");
+        System.out.println("Insert into sorted list");
+        printer(InsertIntoSorted.insertIntoSorted(createLinkedList(),3));
     }
 
     private static Node createLinkedList() {
