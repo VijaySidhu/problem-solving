@@ -7,7 +7,28 @@ public class RunnerClass {
 
 
     public static void main(String[] args) {
+        /**
+         * BST or Level Order Traverse with queue
+         */
         BreadFirstTraversal.bst(createTree());
+        /**
+         * InOrder
+         */
+        System.out.println("");
+        System.out.println("InOrder");
+        DepthFirstTraversal.inOrder(createTree());
+        /**
+         * Pre Order
+         */
+        System.out.println("");
+        System.out.println("PreOrder");
+        DepthFirstTraversal.preOrder(createTree());
+        /**
+         * Post Order
+         */
+        System.out.println("");
+        System.out.println("PostOrder");
+        DepthFirstTraversal.postOrder(createTree());
     }
 
     private static Node createTree() {
