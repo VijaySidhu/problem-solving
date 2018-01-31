@@ -74,6 +74,12 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("IsPalindrome");
         System.out.println(IsPalindrome.isPalindrome(palindromeList()));
+        /**
+         * Insert Node at given position
+         */
+        System.out.println("");
+        System.out.println("Insert node at given position");
+        printer(InsertAtGivenPosition.insertAtGivenPosition(createLinkedList(),2,5));
     }
 
     private static Node createLinkedList() {
