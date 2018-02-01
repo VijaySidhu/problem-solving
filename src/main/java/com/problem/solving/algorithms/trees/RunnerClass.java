@@ -43,6 +43,13 @@ public class RunnerClass {
         System.out.println("Build From Given InOrder and PreOrder");
         int inOrer[] = {4, 8, 10, 12, 14, 20, 22};
         int preOrer[] = {20, 8, 22, 4, 12, 10, 14};
+        // output should be 4 8 10 12 14 20 22
+        int inOrders[] = {8,
+                12,
+                4,
+                22,
+                20,
+                10};
         DepthFirstTraversal.inOrder(CreateFromGivenInorderPreOrder.buildTree(inOrer, preOrer, 0, inOrer.length - 1));
     }
 
