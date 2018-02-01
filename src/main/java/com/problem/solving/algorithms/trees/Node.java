@@ -26,4 +26,16 @@ public class Node {
     public Node getRight() {
         return right;
     }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public void setRight(Node right) {
+        this.right = right;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
+    }
 }

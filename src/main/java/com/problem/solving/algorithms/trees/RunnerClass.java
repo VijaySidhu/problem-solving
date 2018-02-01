@@ -29,6 +29,13 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("PostOrder");
         DepthFirstTraversal.postOrder(createTree());
+        /**
+         * Create Tree from Parent Array
+         */
+        System.out.println("");
+        System.out.println("Tree from Parent Arrays");
+        int parent[] = new int[]{-1, 0, 0, 1, 1, 3, 5};
+        DepthFirstTraversal.inOrder(TreeFromArray.createTree(parent,parent.length));
     }
 
     private static Node createTree() {
