@@ -35,7 +35,15 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("Tree from Parent Arrays");
         int parent[] = new int[]{-1, 0, 0, 1, 1, 3, 5};
-        DepthFirstTraversal.inOrder(TreeFromArray.createTree(parent,parent.length));
+        DepthFirstTraversal.inOrder(TreeFromArray.createTree(parent, parent.length));
+        /**
+         * Build From Given InOrder and PreOrder
+         */
+        System.out.println("");
+        System.out.println("Build From Given InOrder and PreOrder");
+        int inOrer[] = {4, 8, 10, 12, 14, 20, 22};
+        int preOrer[] = {20, 8, 22, 4, 12, 10, 14};
+        DepthFirstTraversal.inOrder(CreateFromGivenInorderPreOrder.buildTree(inOrer, preOrer, 0, inOrer.length - 1));
     }
 
     private static Node createTree() {
