@@ -44,4 +44,17 @@ public class ProblemSolverUtils {
         com.problem.solving.algorithms.trees.Node root = new com.problem.solving.algorithms.trees.Node(1, left, right);
         return root;
     }
+
+    public static int[] swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+        return array;
+    }
+
+    public static void printSingleDimArray(int array[]) {
+        for (int i : array) {
+            System.out.print(i+" ");
+        }
+    }
 }
