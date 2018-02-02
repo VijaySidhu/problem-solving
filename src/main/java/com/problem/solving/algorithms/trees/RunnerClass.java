@@ -54,6 +54,14 @@ public class RunnerClass {
         System.out.println("");
         System.out.println("Bin Tree From Linked List");
         DepthFirstTraversal.inOrder(BinaryTreeFromLinkedList.binaryTreeFromLinkedList(ProblemSolverUtils.createLinkedList()));
+        /**
+         * Create Tree from Given Pre and Post Orders
+         */
+        System.out.println("");
+        System.out.println("Create Binary Tree from Given Pre and Post Orders");
+        int pre[] = {1, 2, 4, 8, 9, 5, 3, 6, 7};
+        int post[] = {8, 9, 4, 5, 2, 6, 7, 3, 1};
+        DepthFirstTraversal.inOrder(BinTreeFromGivenPrePostTravesals.binaryTreeFromGivenPrePostTraversal(pre, post, 0, pre.length - 1, pre.length));
 
     }
 
