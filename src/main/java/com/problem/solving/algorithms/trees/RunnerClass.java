@@ -1,5 +1,7 @@
 package com.problem.solving.algorithms.trees;
 
+import com.problem.solving.algorithms.ProblemSolverUtils;
+
 /**
  * Created by VijaySidhu on 1/30/2018.
  */
@@ -10,25 +12,25 @@ public class RunnerClass {
         /**
          * BST or Level Order Traverse with queue
          */
-        BreadFirstTraversal.bst(createTree());
+        BreadFirstTraversal.bst(ProblemSolverUtils.createTree());
         /**
          * InOrder
          */
         System.out.println("");
         System.out.println("InOrder");
-        DepthFirstTraversal.inOrder(createTree());
+        DepthFirstTraversal.inOrder(ProblemSolverUtils.createTree());
         /**
          * Pre Order
          */
         System.out.println("");
         System.out.println("PreOrder");
-        DepthFirstTraversal.preOrder(createTree());
+        DepthFirstTraversal.preOrder(ProblemSolverUtils.createTree());
         /**
          * Post Order
          */
         System.out.println("");
         System.out.println("PostOrder");
-        DepthFirstTraversal.postOrder(createTree());
+        DepthFirstTraversal.postOrder(ProblemSolverUtils.createTree());
         /**
          * Create Tree from Parent Array
          */
@@ -45,16 +47,15 @@ public class RunnerClass {
         int[] preOrder = {10, 5, 2, 6, 14, 12, 15};
 
         DepthFirstTraversal.inOrder(CreateFromGivenInorderPreOrder.buildTree(inOrder, preOrder, 0, inOrder.length - 1));
+
+        /**
+         * Create Bin Tree from Linked list
+         */
+        System.out.println("");
+        System.out.println("Bin Tree From Linked List");
+        DepthFirstTraversal.inOrder(BinaryTreeFromLinkedList.binaryTreeFromLinkedList(ProblemSolverUtils.createLinkedList()));
+
     }
 
-    private static Node createTree() {
-        Node rightOfRightOfRight = new Node(7, null, null);
-        Node leftOfLeftOfLeft = new Node(6, null, null);
-        Node rightOfRight = new Node(5, null, null);
-        Node leftOfLeft = new Node(4, null, null);
-        Node right = new Node(3, leftOfLeftOfLeft, rightOfRightOfRight);
-        Node left = new Node(2, leftOfLeft, rightOfRight);
-        Node root = new Node(1, left, right);
-        return root;
-    }
+
 }

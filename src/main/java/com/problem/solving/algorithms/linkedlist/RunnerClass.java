@@ -1,6 +1,6 @@
 package com.problem.solving.algorithms.linkedlist;
 
-import java.util.Objects;
+import com.problem.solving.algorithms.ProblemSolverUtils;
 
 /**
  * Created by VijaySidhu on 1/28/2018.
@@ -13,103 +13,80 @@ public class RunnerClass {
          * Reverse Linked List
          */
         System.out.println("");
-        printer(ReverseList.reverseList(createLinkedList()));
+        ProblemSolverUtils.printer(ReverseList.reverseList(ProblemSolverUtils.createLinkedList()));
 
 
         /**
          * Middle Detector
          */
         System.out.println(" ");
-        System.out.println("Middle Element is " + (MiddleElementDetector.middleDetector(createLinkedList()).getData()));
+        System.out.println("Middle Element is " + (MiddleElementDetector.middleDetector(ProblemSolverUtils.createLinkedList()).getData()));
 
         /**
          * Loop Detector with Floyd's cycle
          */
-        printer(LoopDetector.removeLoopIfExist(createLinkedList()));
+        ProblemSolverUtils.printer(LoopDetector.removeLoopIfExist(ProblemSolverUtils.createLinkedList()));
         System.out.println("");
         System.out.println("Creating and Removing loop.........");
-        printer(LoopDetector.removeLoopIfExist(LoopDetector.createLoop(createLinkedList())));
+        ProblemSolverUtils.printer(LoopDetector.removeLoopIfExist(LoopDetector.createLoop(ProblemSolverUtils.createLinkedList())));
 
         /**
          * Nth Node Search
          */
         System.out.println("");
         System.out.println("Search nth node");
-        printer(NthNodeSearch.searchNthNode(createLinkedList(), 2));
+        ProblemSolverUtils.printer(NthNodeSearch.searchNthNode(ProblemSolverUtils.createLinkedList(), 2));
         /**
          * Search kth from last
          */
         System.out.println("");
-        printer(SearchKthFromLast.searchKthFromLast(createLinkedList(), 2));
+        ProblemSolverUtils.printer(SearchKthFromLast.searchKthFromLast(ProblemSolverUtils.createLinkedList(), 2));
 
         /**
          * Reverse Pairs
          */
         System.out.println("");
         System.out.println("Reverse Pairs");
-        printer(ReversePairs.reversePairs(createLinkedList()));
+        ProblemSolverUtils.printer(ReversePairs.reversePairs(ProblemSolverUtils.createLinkedList()));
 
         /**
          * Merge two sorted linked list
          */
         System.out.println("");
         System.out.println("Merge Linked List");
-        printer(MergeSortedList.mergeSortedList(createLinkedList(), createLinkedList()));
+        ProblemSolverUtils.printer(MergeSortedList.mergeSortedList(ProblemSolverUtils.createLinkedList(), ProblemSolverUtils.createLinkedList()));
 
         /**
          * Swap Given nodes
          */
         System.out.println("");
         System.out.println("Swap given nodes");
-        printer(SwapGivenNodes.swapGivenNodes(createLinkedList(), 2, 3));
+        ProblemSolverUtils.printer(SwapGivenNodes.swapGivenNodes(ProblemSolverUtils.createLinkedList(), 2, 3));
         /**
          * Alternate delete
          */
         System.out.println("");
         System.out.println("Alternate Node deletion");
-        printer(AlternateNodesDeletion.recursiveDelete(createLinkedList()));
+        ProblemSolverUtils.printer(AlternateNodesDeletion.recursiveDelete(ProblemSolverUtils.createLinkedList()));
         /**
          * Is Palindrome
          */
         System.out.println("");
         System.out.println("IsPalindrome");
-        System.out.println(IsPalindrome.isPalindrome(palindromeList()));
+        System.out.println(IsPalindrome.isPalindrome(ProblemSolverUtils.palindromeList()));
         /**
          * Insert Node at given position
          */
         System.out.println("");
         System.out.println("Insert node at given position");
-        printer(InsertAtGivenPosition.insertAtGivenPosition(createLinkedList(),2,5));
+        ProblemSolverUtils.printer(InsertAtGivenPosition.insertAtGivenPosition(ProblemSolverUtils.createLinkedList(), 2, 5));
         /**
          * Insert into Sorted list
          */
         System.out.println("");
         System.out.println("Insert into sorted list");
-        printer(InsertIntoSorted.insertIntoSorted(createLinkedList(),3));
+        ProblemSolverUtils.printer(InsertIntoSorted.insertIntoSorted(ProblemSolverUtils.createLinkedList(), 3));
     }
 
-    private static Node createLinkedList() {
-        Node nextNextNext = new Node(4, null);
-        Node nextNext = new Node(3, nextNextNext);
-        Node headNext = new Node(2, nextNext);
-        Node head = new Node(1, headNext);
-        return head;
-    }
 
-    private static Node palindromeList() {
-        Node nextNext = new Node(1, null);
-        Node headNext = new Node(2, nextNext);
-        Node head = new Node(1, headNext);
-        return head;
-    }
-
-    public static void printer(Node head) {
-        while (Objects.nonNull(head)) {
-            System.out.print(head.getData());
-            head = head.next;
-            if (Objects.nonNull(head)) {
-                System.out.print("-->");
-            }
-        }
-    }
 }
