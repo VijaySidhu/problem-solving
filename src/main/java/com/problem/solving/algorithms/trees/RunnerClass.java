@@ -63,6 +63,17 @@ public class RunnerClass {
         int post[] = {8, 9, 4, 5, 2, 6, 7, 3, 1};
         DepthFirstTraversal.inOrder(BinTreeFromGivenPrePostTravesals.binaryTreeFromGivenPrePostTraversal(pre, post, 0, pre.length - 1, pre.length));
 
+        /**
+         * Special Tree from Given Pre Order and Leaf and Non Leaf Nodes
+         */
+        System.out.println("");
+        System.out.println("Special Tree from Given Pre Order and Leaf and Non Leaf Node array indexes");
+        int index = 0;
+        Node root = null;
+        int preOrderGiven[] = new int[]{10, 30, 20, 5, 15};
+        char preLN[] = new char[]{'N', 'N', 'L', 'L', 'L'};
+        DepthFirstTraversal.preOrder(SpecialTree.specialTreeOfGivenScenario(preOrder, preLN, index,preOrderGiven.length, root));
+
     }
 
 
