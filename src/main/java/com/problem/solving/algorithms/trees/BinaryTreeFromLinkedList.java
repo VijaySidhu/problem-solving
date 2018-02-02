@@ -10,6 +10,7 @@ public class BinaryTreeFromLinkedList {
 
     /**
      * If root node is stored at index i, its left, and right children are stored at indices 2*i+1, 2*i+2 respectively.
+     * Time complexity of the above solution is O(n) where n is the number of nodes.
      * @return
      */
     public static Node binaryTreeFromLinkedList(com.problem.solving.algorithms.linkedlist.Node head) {
