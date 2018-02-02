@@ -24,18 +24,16 @@ public class CreateFromGivenInorderPreOrder {
             return null;
         // Pick an element from Pre Order and create root node
         Node treeNode = null;
-        if (preIndex <= end) {
-            treeNode = new Node(preOrder[preIndex++], null, null);
-            // If this node has no children
-            if (start == end) {
-                return treeNode;
-            }
-            // Find index of this node in given inOrder Travesal
-            int inIndex = search(inOrder, start, end, treeNode.getData());
-            // Use this index and construct left and right subtrees
-            treeNode.setLeft(buildTree(inOrder, preOrder, start, inIndex - 1));
-            treeNode.setRight(buildTree(inOrder, preOrder, inIndex + 1, end));
+        treeNode = new Node(preOrder[preIndex++], null, null);
+        // If this node has no children
+        if (start == end) {
+            return treeNode;
         }
+        // Find index of this node in given inOrder Travesal
+        int inIndex = search(inOrder, start, end, treeNode.getData());
+        // Use this index and construct left and right subtrees
+        treeNode.setLeft(buildTree(inOrder, preOrder, start, inIndex - 1));
+        treeNode.setRight(buildTree(inOrder, preOrder, inIndex + 1, end));
         return treeNode;
     }
 
