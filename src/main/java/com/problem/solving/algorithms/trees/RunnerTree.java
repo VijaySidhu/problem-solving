@@ -5,7 +5,7 @@ import com.problem.solving.algorithms.ProblemSolverUtils;
 /**
  * Created by VijaySidhu on 1/30/2018.
  */
-public class RunnerClass {
+public class RunnerTree {
 
 
     public static void main(String[] args) {
@@ -64,7 +64,7 @@ public class RunnerClass {
         DepthFirstTraversal.inOrder(BinTreeFromGivenPrePostTravesals.binaryTreeFromGivenPrePostTraversal(pre, post, 0, pre.length - 1, pre.length));
 
         /**
-         * Special Tree from Given Pre Order and Leaf and Non Leaf Nodes
+         * Special Tree from Given Pre Order and Leaf and Non Leaf Nodes // TODO Below is not working yet
          */
         System.out.println("");
         System.out.println("Special Tree from Given Pre Order and Leaf and Non Leaf Node array indexes");
@@ -72,7 +72,14 @@ public class RunnerClass {
         Node root = null;
         int preOrderGiven[] = new int[]{10, 30, 20, 5, 15};
         char preLN[] = new char[]{'N', 'N', 'L', 'L', 'L'};
-        DepthFirstTraversal.preOrder(SpecialTree.specialTreeOfGivenScenario(preOrder, preLN, index,preOrderGiven.length, root));
+        DepthFirstTraversal.preOrder(SpecialTree.specialTreeOfGivenScenario(preOrder, preLN, index, preOrderGiven.length, root));
+
+        /**
+         * Sprial Print Tree
+         */
+        System.out.println("");
+        System.out.println("");
+        SpiralForm.zigZagPrinter(ProblemSolverUtils.createTree());
 
     }
 
