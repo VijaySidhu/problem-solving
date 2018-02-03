@@ -80,6 +80,14 @@ public class RunnerTree {
         System.out.println("");
         System.out.println("");
         SpiralForm.zigZagPrinter(ProblemSolverUtils.createTree());
+        /**
+         * Mirror Conversion
+         */
+        System.out.println("");
+        System.out.println("Before Mirror Conversion");
+        DepthFirstTraversal.inOrder(ProblemSolverUtils.createTree());
+        System.out.println("After Mirror Conversion");
+        DepthFirstTraversal.inOrder(MirrorTree.mirrorCoversion(ProblemSolverUtils.createTree()));
 
     }
 
