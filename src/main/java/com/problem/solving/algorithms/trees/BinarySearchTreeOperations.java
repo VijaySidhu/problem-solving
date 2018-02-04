@@ -42,7 +42,12 @@ public class BinarySearchTreeOperations {
         return searchBinarySearchTree(root.getRight(), data);
     }
 
-    // delete from  binary Search tree
+    /**
+     * 1. If Node to be deleted is leaf node just remove
+     * 2. If Node to be deleted has only one child : copy the child to the node and delete the child
+     * 3. If Node to be deleted has two children: Find inorder successor of the node. Copy contents of the inorder
+     * successor to the node and delete the inorder successor.
+     */
     public static Node deleteFromBinarySearchTree(Node root, int data) {
 
         return null;
