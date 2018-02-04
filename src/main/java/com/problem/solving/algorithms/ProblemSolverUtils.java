@@ -36,7 +36,8 @@ public class ProblemSolverUtils {
         }
     }
 
-    public static com.problem.solving.algorithms.trees.Node createTree() {
+    // Binary Tree is Tree in which each node has two children except leaf node
+    public static com.problem.solving.algorithms.trees.Node createBinaryTree() {
         com.problem.solving.algorithms.trees.Node rightOfRightOfRight = new com.problem.solving.algorithms.trees.Node(7, null, null);
         com.problem.solving.algorithms.trees.Node leftOfLeftOfLeft = new com.problem.solving.algorithms.trees.Node(6, null, null);
         com.problem.solving.algorithms.trees.Node rightOfRight = new com.problem.solving.algorithms.trees.Node(5, null, null);
@@ -46,6 +47,8 @@ public class ProblemSolverUtils {
         com.problem.solving.algorithms.trees.Node root = new com.problem.solving.algorithms.trees.Node(1, left, right);
         return root;
     }
+
+
 
     public static NodeTri creatTernaryTree() {
         NodeTri root = new NodeTri(30);

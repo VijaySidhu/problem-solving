@@ -13,25 +13,25 @@ public class RunnerTree {
         /**
          * BST or Level Order Traverse with queue
          */
-        BreadFirstTraversal.bst(ProblemSolverUtils.createTree());
+        BreadFirstTraversal.bst(ProblemSolverUtils.createBinaryTree());
         /**
          * InOrder
          */
         System.out.println("");
         System.out.println("InOrder");
-        DepthFirstTraversal.inOrder(ProblemSolverUtils.createTree());
+        DepthFirstTraversal.inOrder(ProblemSolverUtils.createBinaryTree());
         /**
          * Pre Order
          */
         System.out.println("");
         System.out.println("PreOrder");
-        DepthFirstTraversal.preOrder(ProblemSolverUtils.createTree());
+        DepthFirstTraversal.preOrder(ProblemSolverUtils.createBinaryTree());
         /**
          * Post Order
          */
         System.out.println("");
         System.out.println("PostOrder");
-        DepthFirstTraversal.postOrder(ProblemSolverUtils.createTree());
+        DepthFirstTraversal.postOrder(ProblemSolverUtils.createBinaryTree());
         /**
          * Create Tree from Parent Array
          */
@@ -80,15 +80,15 @@ public class RunnerTree {
          */
         System.out.println("");
         System.out.println("");
-        SpiralForm.zigZagPrinter(ProblemSolverUtils.createTree());
+        SpiralForm.zigZagPrinter(ProblemSolverUtils.createBinaryTree());
         /**
          * Mirror Conversion
          */
         System.out.println("");
         System.out.println("Before Mirror Conversion");
-        DepthFirstTraversal.inOrder(ProblemSolverUtils.createTree());
+        DepthFirstTraversal.inOrder(ProblemSolverUtils.createBinaryTree());
         System.out.println("After Mirror Conversion");
-        DepthFirstTraversal.inOrder(MirrorTree.mirrorCoversion(ProblemSolverUtils.createTree()));
+        DepthFirstTraversal.inOrder(MirrorTree.mirrorCoversion(ProblemSolverUtils.createBinaryTree()));
 
         /**
          * Convert Tri to Doubly
