@@ -48,6 +48,26 @@ public class ProblemSolverUtils {
         return root;
     }
 
+    public static com.problem.solving.algorithms.trees.Node createBinarySearchTree() {
+        com.problem.solving.algorithms.trees.Node rootNode = new com.problem.solving.algorithms.trees.Node(30, null, null);
+        com.problem.solving.algorithms.trees.Node node10 = new com.problem.solving.algorithms.trees.Node(10, null, null);
+        com.problem.solving.algorithms.trees.Node node20 = new com.problem.solving.algorithms.trees.Node(20, null, null);
+        com.problem.solving.algorithms.trees.Node node25 = new com.problem.solving.algorithms.trees.Node(25, null, null);
+        com.problem.solving.algorithms.trees.Node node35 = new com.problem.solving.algorithms.trees.Node(35, null, null);
+        com.problem.solving.algorithms.trees.Node node40 = new com.problem.solving.algorithms.trees.Node(40, null, null);
+        com.problem.solving.algorithms.trees.Node node50 = new com.problem.solving.algorithms.trees.Node(50, null, null);
+        com.problem.solving.algorithms.trees.Node node45 = new com.problem.solving.algorithms.trees.Node(45, null, null);
+        com.problem.solving.algorithms.trees.Node node60 = new com.problem.solving.algorithms.trees.Node(60, null, null);
+        rootNode.setLeft(node20);
+        rootNode.setRight(node40);
+        node20.setLeft(node10);
+        node20.setRight(node25);
+        node40.setLeft(node35);
+        node40.setRight(node50);
+        node50.setRight(node60);
+        node50.setLeft(node45);
+        return rootNode;
+    }
 
 
     public static NodeTri creatTernaryTree() {

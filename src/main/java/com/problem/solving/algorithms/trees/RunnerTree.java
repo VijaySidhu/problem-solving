@@ -98,6 +98,16 @@ public class RunnerTree {
         NodeDoubly doubly = DoublyFromTernary.triToDoubly(ProblemSolverUtils.creatTernaryTree());
         ProblemSolverUtils.doublyTraverse(doubly);
 
+        /**
+         * BinarySearch In Binary Search Tree
+         */
+        System.out.println("");
+        System.out.println("Search Node in Bin Search Tree");
+        Node n = BinarySearchTreeOperations.searchBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(), 60);
+        if (n != null) {
+            System.out.println("Found");
+        }
+
     }
 
 
