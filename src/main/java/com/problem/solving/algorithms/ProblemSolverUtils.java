@@ -1,6 +1,8 @@
 package com.problem.solving.algorithms;
 
 import com.problem.solving.algorithms.linkedlist.Node;
+import com.problem.solving.algorithms.linkedlist.NodeDoubly;
+import com.problem.solving.algorithms.trees.NodeTri;
 
 import java.util.Objects;
 
@@ -45,6 +47,52 @@ public class ProblemSolverUtils {
         return root;
     }
 
+    public static NodeTri creatTernaryTree() {
+        NodeTri root = new NodeTri(30);
+        NodeTri rootLeft = new NodeTri(5);
+        NodeTri rootMiddle = new NodeTri(11);
+        NodeTri rootRight = new NodeTri(63);
+        NodeTri rootLeftOfLeft = new NodeTri(1);
+        NodeTri rootMiddleOfMiddle = new NodeTri(4);
+        NodeTri rootRightOfRight = new NodeTri(8);
+        NodeTri rootLeftOfLeftOfLeft = new NodeTri(6);
+        NodeTri rootMiddleOfMiddleOfMiddle = new NodeTri(7);
+        NodeTri rootRightOfRightOfRight = new NodeTri(15);
+        NodeTri rootLeftOfLeftOfLeftOfLeft = new NodeTri(31);
+        NodeTri rootMiddleOfMiddleOfMiddleOfMiddle = new NodeTri(55);
+        NodeTri rootRightOfRightOfRightOfRight = new NodeTri(65);
+        root.setLeft(rootLeft);
+        root.setMiddle(rootMiddle);
+        root.setRight(rootRight);
+        rootLeft.setLeft(rootLeftOfLeft);
+        rootLeft.setMiddle(rootMiddleOfMiddle);
+        rootLeft.setRight(rootRightOfRight);
+        rootMiddle.setLeft(rootLeftOfLeftOfLeft);
+        rootMiddle.setMiddle(rootMiddleOfMiddleOfMiddle);
+        rootMiddle.setRight(rootRightOfRightOfRight);
+        rootRight.setLeft(rootLeftOfLeftOfLeftOfLeft);
+        rootRight.setMiddle(rootMiddleOfMiddleOfMiddleOfMiddle);
+        rootRight.setRight(rootRightOfRightOfRightOfRight);
+        return root;
+    }
+
+    public static NodeDoubly createDoublyList() {
+        NodeDoubly root = new NodeDoubly(1);
+        NodeDoubly rootLeft = new NodeDoubly(2);
+        NodeDoubly rootRight = new NodeDoubly(3);
+        NodeDoubly rootLeftOfLeft = new NodeDoubly(4);
+        NodeDoubly rootRightOfRight = new NodeDoubly(5);
+        NodeDoubly rootLeftOfLeftOfLeft = new NodeDoubly(6);
+        NodeDoubly rootRightOfRightOfRight = new NodeDoubly(7);
+        root.setLeft(rootLeft);
+        root.setRight(rootRight);
+        rootLeft.setLeft(rootLeftOfLeft);
+        rootRight.setLeft(rootRightOfRight);
+        rootLeftOfLeft.setLeft(rootLeftOfLeftOfLeft);
+        rootLeftOfLeft.setLeft(rootRightOfRightOfRight);
+        return root;
+    }
+
     public static int[] swap(int[] array, int i, int j) {
         int temp = array[i];
         array[i] = array[j];
@@ -54,7 +102,17 @@ public class ProblemSolverUtils {
 
     public static void printSingleDimArray(int array[]) {
         for (int i : array) {
-            System.out.print(i+" ");
+            System.out.print(i + " ");
+        }
+    }
+
+    public static void doublyTraverse(NodeDoubly root) {
+        if (root == null) {
+            return;
+        }
+        while (root != null) {
+            System.out.println(root.getData());
+            root = root.getRight();
         }
     }
 }

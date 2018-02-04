@@ -1,6 +1,7 @@
 package com.problem.solving.algorithms.trees;
 
 import com.problem.solving.algorithms.ProblemSolverUtils;
+import com.problem.solving.algorithms.linkedlist.NodeDoubly;
 
 /**
  * Created by VijaySidhu on 1/30/2018.
@@ -88,6 +89,14 @@ public class RunnerTree {
         DepthFirstTraversal.inOrder(ProblemSolverUtils.createTree());
         System.out.println("After Mirror Conversion");
         DepthFirstTraversal.inOrder(MirrorTree.mirrorCoversion(ProblemSolverUtils.createTree()));
+
+        /**
+         * Convert Tri to Doubly
+         */
+        System.out.println("");
+        System.out.println("Conver Tri to doubly");
+        NodeDoubly doubly = DoublyFromTernary.triToDoubly(ProblemSolverUtils.creatTernaryTree());
+        ProblemSolverUtils.doublyTraverse(doubly);
 
     }
 
