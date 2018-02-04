@@ -10,18 +10,32 @@ package com.problem.solving.algorithms.trees;
 public class BinarySearchTreeOperations {
 
     // Insert into binary search tree at first position available
+    // Complexity O(logn) Worst Case =    * O(n) Space O(n)
+
     public static Node insertIntoBinarySearchTree(Node root, int data) {
 
-        return null;
+      /* If the tree is empty, return a new node */
+        if (root == null) {
+            root = new Node(data, null, null);
+            return root;
+        }
+
+        /* Otherwise, recur down the tree */
+        if (data < root.getData())
+            root.setLeft(insertIntoBinarySearchTree(root.getLeft(), data));
+        else if (data > root.getData())
+            root.setRight(insertIntoBinarySearchTree(root.getRight(), data));
+
+        /* return the (unchanged) node pointer */
+        return root;
     }
 
-    // Seach from binary Search tree
+    // Seach from binary Search tree O(log n) Worst Case O(n) Space O(n)
     public static Node searchBinarySearchTree(Node root, int data) {
 
         if (root == null || root.getData() == data) {
             return root;
         }
-
         if (root.getData() > data) {
             return searchBinarySearchTree(root.getLeft(), data);
         }

@@ -107,6 +107,10 @@ public class RunnerTree {
         if (n != null) {
             System.out.println("Found");
         }
+        /**
+         * Insert into Binary Search Tree
+         */
+        BinarySearchTreeOperations.insertIntoBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(),100);
 
     }
 
