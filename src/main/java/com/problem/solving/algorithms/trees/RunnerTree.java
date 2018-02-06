@@ -110,7 +110,13 @@ public class RunnerTree {
         /**
          * Insert into Binary Search Tree
          */
+        System.out.println("");
+        System.out.println("Insertion");
         BinarySearchTreeOperations.insertIntoBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(),100);
+        System.out.println("");
+        System.out.println("Deletion");
+        Node deleted = BinarySearchTreeOperations.deleteFromBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(),60);
+        System.out.println(deleted);
 
     }
 

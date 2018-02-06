@@ -50,6 +50,51 @@ public class BinarySearchTreeOperations {
      */
     public static Node deleteFromBinarySearchTree(Node root, int data) {
 
-        return null;
+        if (root == null) {
+            return root;
+        }
+        // Find node to be deleted
+        if (root.getData() < data) {
+            root.setRight(deleteFromBinarySearchTree(root.getRight(), data));
+        } else if (root.getData() > data) {
+            root.setLeft(deleteFromBinarySearchTree(root.getLeft(), data));
+        } else {
+            // At this point we found node and If node has one child only copy child to node and delete child
+            if (root.getLeft() == null) {
+                return root.getRight();
+            } else if (root.getRight() == null) {
+                return root.getLeft();
+            }
+            // Handle If Node has two children. Find in Order Sucessor(Min node of right subtree)
+            Node temp = root;
+            root = minimumFromRightSubtree(temp.getRight());
+            // At this point root is minimum of right subtree
+            root.setRight(deleteMin(temp.getRight()));
+            root.setLeft(temp.getLeft());
+
+
+        }
+
+
+        return root;
     }
+
+    private static Node minimumFromRightSubtree(Node node) {
+        if (node.getLeft() == null) {
+            return node;
+        } else {
+            return minimumFromRightSubtree(node.getLeft());
+        }
+    }
+
+    private static Node deleteMin(Node node) {
+        if (node.getLeft() == null) {
+            return node.getRight();
+        }
+        node.setLeft(deleteMin(node.getLeft()));
+        return node;
+    }
+
+
 }
+
