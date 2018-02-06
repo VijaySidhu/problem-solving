@@ -112,11 +112,23 @@ public class RunnerTree {
          */
         System.out.println("");
         System.out.println("Insertion");
-        BinarySearchTreeOperations.insertIntoBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(),100);
+        BinarySearchTreeOperations.insertIntoBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(), 100);
         System.out.println("");
         System.out.println("Deletion");
-        Node deleted = BinarySearchTreeOperations.deleteFromBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(),60);
+        Node deleted = BinarySearchTreeOperations.deleteFromBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(), 60);
         System.out.println(deleted);
+        /**
+         * LCA of BinaryTree
+         */
+        System.out.println("");
+        System.out.println("LCA from Binary Tree");
+        System.out.println(LCA.lcaBinaryTree(ProblemSolverUtils.createBinaryTree(), 3, 4).getData());
+        /**
+         * LCA from BST
+         */
+        System.out.println("");
+        System.out.println("LCA FROM BinarySearchTree");
+        System.out.println(LCA.lcaBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(), 20, 40).getData());
 
     }
 
