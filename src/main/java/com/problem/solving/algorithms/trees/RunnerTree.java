@@ -129,6 +129,12 @@ public class RunnerTree {
         System.out.println("");
         System.out.println("LCA FROM BinarySearchTree");
         System.out.println(LCA.lcaBinarySearchTree(ProblemSolverUtils.createBinarySearchTree(), 20, 40).getData());
+        /**
+         * Print ancestors or all common nodes
+         */
+        System.out.println("");
+        System.out.println(" Print all Common Nodes");
+        LCA.printAncestorNodes(ProblemSolverUtils.createBinaryTree(),6,7);
 
     }
 

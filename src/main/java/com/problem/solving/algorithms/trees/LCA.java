@@ -42,4 +42,31 @@ public class LCA {
         }
         return root;
     }
+
+    // Print Common nodes on path from root
+    // find LCA and print all common ancestors
+    public static void printAncestorNodes(Node root, int val1, int val2) {
+        Node lca = lcaBinaryTree(root, val1, val2);
+        if (lca == null) {
+            return;
+        }
+        printAncestorNodes(root, lca.getData());
+    }
+
+    public static boolean printAncestorNodes(Node root, int data) {
+        if (root == null) {
+            return false;
+        }
+        if (root.getData() == data) {
+            System.out.println(root.getData() + " ");
+            return true;
+        }
+        //recurse right and left subtree for data
+        if (printAncestorNodes(root.getLeft(), data) || printAncestorNodes(root.getRight(), data)) {
+            System.out.println(root.getData() + "  ");
+            return true;
+        }
+        return false;
+
+    }
 }
