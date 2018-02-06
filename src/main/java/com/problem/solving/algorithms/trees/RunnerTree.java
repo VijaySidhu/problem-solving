@@ -134,7 +134,13 @@ public class RunnerTree {
          */
         System.out.println("");
         System.out.println(" Print all Common Nodes");
-        LCA.printAncestorNodes(ProblemSolverUtils.createBinaryTree(),6,7);
+        LCA.printAncestorNodes(ProblemSolverUtils.createBinaryTree(), 6, 7);
+        /**
+         * Distance Between two nodes
+         */
+        System.out.println("");
+        System.out.println("Distance between two nodes");
+        System.out.println(DistanceBetweenGiveNodes.findDistance(ProblemSolverUtils.createBinaryTree(), 2,4));
 
     }
 
