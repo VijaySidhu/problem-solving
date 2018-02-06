@@ -8,6 +8,8 @@ public class Rotation {
      * Rotates given array of size n by d
      * Juggling Algo rotates array in sets
      * First find  GCD and let loop iterate < = GCD(Total number of Sets)
+     * Time complexity: O(n)
+       Auxiliary Space: O(1)
      */
     public static int[] rotateWithJugglingAlgorithm(int array[], int n, int d) {
         int i, j, k, temp;
