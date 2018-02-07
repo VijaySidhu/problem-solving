@@ -31,7 +31,16 @@ public class RunnerSorting {
         Map<Integer, Integer> sortedMap = SortByValueMap.sortByValue(map);
         for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
             System.out.println(entry.getKey() + " <-> " + entry.getValue());
+
+
         }
+        /**
+         * Frequency Sort
+         */
+        System.out.println("");
+        System.out.println("Sort by frequency");
+        int a[] = { 2, 5, 2, 6, -1, 9999999, 5, 8, 8, 8 };
+        FrequencySort.sortByFrequency(a);
 
     }
 

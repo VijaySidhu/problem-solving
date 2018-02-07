@@ -7,6 +7,12 @@ import java.util.*;
  */
 public class SortByValueMap {
 
+    /**
+     * Descending Order SOrt by value
+     *
+     * @param map
+     * @return
+     */
     public static Map<Integer, Integer> sortByValue(Map<Integer, Integer> map) {
         Set<Map.Entry<Integer, Integer>> entries = map.entrySet();
         List<Map.Entry<Integer, Integer>> list = new LinkedList<>(entries);

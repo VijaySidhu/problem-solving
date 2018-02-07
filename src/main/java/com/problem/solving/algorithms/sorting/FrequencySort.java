@@ -27,6 +27,10 @@ public class FrequencySort {
                 map.put(val, 1);
             }
         }
+        Map<Integer,Integer> sortedMap = SortByValueMap.sortByValue(map);
+        for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
+            System.out.println(entry.getKey() + " <-> " + entry.getValue());
+        }
     }
 
 
