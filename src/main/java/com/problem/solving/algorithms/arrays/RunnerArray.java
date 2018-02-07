@@ -60,5 +60,11 @@ public class RunnerArray {
         System.out.println("Kadane's Algo");
         int arr[] = {2, 3, 4, 5, 7};
         System.out.println(ContigousSumSubarray.maxSumOfSubArray(arr));
+        /**
+         * Segregate Even Odd
+         */
+        System.out.println("");
+        System.out.println("Segregate Even Odd");
+        SegregateEvenOdd.segregateEvenOdd(arr);
     }
 }
