@@ -66,5 +66,7 @@ public class RunnerArray {
         System.out.println("");
         System.out.println("Segregate Even Odd");
         SegregateEvenOdd.segregateEvenOdd(arr);
+
+
     }
 }
