@@ -3,6 +3,7 @@ package com.problem.solving.algorithms.sorting;
 import com.problem.solving.algorithms.ProblemSolverUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,10 +29,9 @@ public class RunnerSorting {
         map.put(1, 1);
         map.put(110, 11);
         map.put(02, 2);
-        Map<Integer, Integer> sortedMap = SortByValueMap.sortByValue(map);
-        for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
+        List<Map.Entry<Integer, Integer>> sortedMap = SortByValueMap.sortByValue(map);
+        for (Map.Entry<Integer, Integer> entry : sortedMap) {
             System.out.println(entry.getKey() + " <-> " + entry.getValue());
-
 
         }
         /**
@@ -39,7 +39,7 @@ public class RunnerSorting {
          */
         System.out.println("");
         System.out.println("Sort by frequency");
-        int a[] = { 2, 5, 2, 6, -1, 9999999, 5, 8, 8, 8 };
+        int a[] = {2, 5, 2, 6, -1, 9999999, 5, 8, 8, 8};
         FrequencySort.sortByFrequency(a);
 
     }
