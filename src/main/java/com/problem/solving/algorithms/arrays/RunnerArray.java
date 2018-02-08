@@ -67,6 +67,14 @@ public class RunnerArray {
         System.out.println("Segregate Even Odd");
         SegregateEvenOdd.segregateEvenOdd(arr);
 
+        /**
+         * Replace Every Element with Greatest on Right side
+         */
+        System.out.println("");
+        System.out.println("Replace with Greates on Right Side");
+        int arrs[] = {16, 17, 4, 3, 5, 2};
+        ProblemSolverUtils.printSingleDimArray(ReplaceWithGreatestOnRightSide.replaceWithGreatestElementOnRightSide(arrs));
+
 
     }
 }
