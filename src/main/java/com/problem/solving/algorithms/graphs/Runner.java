@@ -1,7 +1,5 @@
 package com.problem.solving.algorithms.graphs;
 
-import com.problem.solving.algorithms.trees.BreadFirstTraversal;
-
 /**
  * Created by VijaySidhu on 6/23/2018.
  */
@@ -15,6 +13,10 @@ public class Runner {
         System.out.println("Breadth First Traverse");
         // Breadth First
         BreadthFirstTraverse.breadthFirst(graph, 2);
+        System.out.println("Following is Depth First Traversal " +
+                "(starting from vertex 2)");
+        // DFS
+        DepthFirst.dfs(graph, 2);
     }
 
     public static void printGraph(Graph graph) {
