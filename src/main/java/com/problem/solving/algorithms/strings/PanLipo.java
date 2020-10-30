@@ -16,6 +16,7 @@ import java.util.Map;
 public class PanLipo {
 
   public static void main(String[] args) {
+    String s;
     char[] str = "a quick brown fox jumps over the lazy do".toLowerCase().toCharArray();
     Map<Integer, Integer> map = new HashMap<>();
     for (Character character : str) {
