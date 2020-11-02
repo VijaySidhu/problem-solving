@@ -32,6 +32,14 @@ public class AdjList {
     });
   }
 
+  public Map<Integer, List<Integer>> getAdjListMap() {
+    return adjListMap;
+  }
+
+  public int getNumEdges() {
+    return numEdges;
+  }
+
   public void addVertex() {
     int v = getNumVertices();
     List<Integer> neighbours = new ArrayList<>();
