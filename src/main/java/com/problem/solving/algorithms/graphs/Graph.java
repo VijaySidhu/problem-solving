@@ -4,11 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by VijaySidhu on 6/23/2018.
- * An array of linked lists is used. Size of the array is equal to the number of vertices.
- * Let the array be array[].
- * An entry array[i] represents the linked list of vertices adjacent to the ith vertex.
- * The weights of edges can be stored in nodes of linked lists.
+ * Created by VijaySidhu on 6/23/2018. An array of linked lists is used. Size of the array is equal
+ * to the number of vertices. Let the array be array[]. An entry array[i] represents the linked list
+ * of vertices adjacent to the ith vertex. The weights of edges can be stored in nodes of linked
+ * lists.
  */
 public class Graph {
 
