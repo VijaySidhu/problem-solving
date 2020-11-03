@@ -39,6 +39,26 @@ public class Operations {
     }
   }
 
+  /**
+   * Time complexity: O(V + E), where V is the number of vertices and E is the number of edges in
+   * the graph. Space Complexity: O(V). Since, an extra visited array is needed of size V.
+   */
+  void depthFirstTraverse(int source, boolean[] visited) {
+    if (visited == null) {
+      visited = new boolean[v];
+    }
+    visited[source] = true;
+    System.out.println(source);
+    List<Integer> neighbours = graphAdjList.get(source);
+    for (int neighbour : neighbours) {
+      if (visited[neighbour] == false) {
+        visited[neighbour] = true;
+        // Recurse
+        depthFirstTraverse(neighbour, visited);
+      }
+    }
+  }
+
   public void setGraphAdjList(Map<Integer, List<Integer>> graphAdjList) {
     this.graphAdjList = graphAdjList;
   }
