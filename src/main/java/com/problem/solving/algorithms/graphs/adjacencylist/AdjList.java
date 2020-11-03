@@ -32,6 +32,20 @@ public class AdjList {
     });
   }
 
+  public static Map<Integer, List<Integer>> transpose(Map<Integer, List<Integer>> graph) {
+    Map<Integer, List<Integer>> transposed = new HashMap<>();
+    for (Integer u : graph.keySet()) {
+      for (Integer v : graph.get(u)) {
+        List<Integer> gTv = transposed.get(v);
+        if (gTv == null) {
+          transposed.put(v, gTv = new ArrayList<>());
+        }
+        gTv.add(u);
+      }
+    }
+    return transposed;
+  }
+
   public Map<Integer, List<Integer>> getAdjListMap() {
     return adjListMap;
   }

@@ -64,6 +64,18 @@ Else if for all vertices the function returns false return false.
     topologicalSorting.setV(6);
     // Sort and print 5 4 2 3 1 0
     topologicalSorting.topologicalSortedGraph();
+    // Strongly connected component
+    AdjList g = new AdjList();
+    g.addEdge(1, 0);
+    g.addEdge(0, 2);
+    g.addEdge(2, 1);
+    g.addEdge(0, 3);
+    g.addEdge(3, 4);
+    StronglyConnectedComponent scc = new StronglyConnectedComponent();
+    scc.setStronglyConnectedG(g.getAdjListMap());
+    scc.setV(5);
+    System.out.println("SCC");
+    scc.printStronglyConnectedComponents();
 
   }
 }
