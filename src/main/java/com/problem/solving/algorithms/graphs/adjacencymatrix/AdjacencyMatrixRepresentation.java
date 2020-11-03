@@ -113,4 +113,16 @@ public class AdjacencyMatrixRepresentation {
     }
     return inNeighbours;
   }
+
+  public int getN() {
+    return n;
+  }
+
+  public boolean isDiagraph() {
+    return diagraph;
+  }
+
+  public int[][] getGraph() {
+    return graph;
+  }
 }
