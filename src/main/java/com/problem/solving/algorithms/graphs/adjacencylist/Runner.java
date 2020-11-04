@@ -75,7 +75,9 @@ Else if for all vertices the function returns false return false.
     scc.setStronglyConnectedG(g.getAdjListMap());
     scc.setVertices(5);
     System.out.println("SCC");
-    scc.printStronglyConnectedComponents();
+    // scc.printStronglyConnectedComponents();
+    StronglyConnected sc = new StronglyConnected();
+    sc.getStronglyConnected(g.getAdjListMap());
 
   }
 }
