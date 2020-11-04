@@ -29,7 +29,7 @@ public class StronglyConnectedComponent {
 
   private Map<Integer, List<Integer>> stronglyConnectedG;
 
-  private int v;
+  private int vertices;
 
   public Map<Integer, List<Integer>> getStronglyConnectedG() {
     return stronglyConnectedG;
@@ -40,18 +40,18 @@ public class StronglyConnectedComponent {
     this.stronglyConnectedG = stronglyConnectedG;
   }
 
-  public int getV() {
-    return v;
+  public int getVertices() {
+    return vertices;
   }
 
-  public void setV(int v) {
-    this.v = v;
+  public void setVertices(int vertices) {
+    this.vertices = vertices;
   }
 
   // 1.
   public void dfs(int v, boolean[] visited) {
     if (visited == null) {
-      visited = new boolean[this.v];
+      visited = new boolean[this.vertices];
     }
     visited[v] = true;
     System.out.println(v);
@@ -75,7 +75,7 @@ public class StronglyConnectedComponent {
   // 3.
   public void fillOrderWithResults(int v, boolean[] visited, Stack stack) {
     if (visited == null) {
-      visited = new boolean[this.v];
+      visited = new boolean[this.vertices];
     }
     if (stack == null) {
       stack = new Stack();
@@ -89,7 +89,6 @@ public class StronglyConnectedComponent {
     if (neighbours != null) {
       for (int neighbor : neighbours) {
         if (visited[neighbor] == false) {
-          visited[neighbor] = true;
           fillOrderWithResults(neighbor, visited, stack);
         }
       }
@@ -102,22 +101,23 @@ public class StronglyConnectedComponent {
     Stack stack = new Stack();
 
     // Mark all the vertices as not visited (For first DFS)
-    boolean visited[] = new boolean[this.v];
-    for (int i = 0; i < this.v; i++) {
+    boolean visited[] = new boolean[this.vertices];
+    for (int i = 0; i < this.vertices; i++) {
       visited[i] = false;
     }
 
     // Fill vertices in stack according to their finishing
     // times
-    for (int i = 0; i < this.v; i++) {
+    for (int i = 0; i < this.vertices; i++) {
       if (visited[i] == false) {
         fillOrderWithResults(i, visited, stack);
       }
     }
     Map<Integer, List<Integer>> transposed = this.transpose();
+    stronglyConnectedG = transposed;
     // Second pass on Transposed graph
     // Mark all the vertices as not visited (For second DFS)
-    for (int i = 0; i < this.v; i++) {
+    for (int i = 0; i < this.vertices; i++) {
       visited[i] = false;
     }
     // Now process all vertices in order defined by Stack

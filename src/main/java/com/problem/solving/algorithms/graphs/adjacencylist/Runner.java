@@ -73,7 +73,7 @@ Else if for all vertices the function returns false return false.
     g.addEdge(3, 4);
     StronglyConnectedComponent scc = new StronglyConnectedComponent();
     scc.setStronglyConnectedG(g.getAdjListMap());
-    scc.setV(5);
+    scc.setVertices(5);
     System.out.println("SCC");
     scc.printStronglyConnectedComponents();
 
