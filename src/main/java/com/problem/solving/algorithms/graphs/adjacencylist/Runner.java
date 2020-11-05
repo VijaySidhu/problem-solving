@@ -105,5 +105,10 @@ Else if for all vertices the function returns false return false.
         unweightedGraph.getAdjListMap());
     sug.shortestPathUnweightedGraph();
 
+    System.out.println();
+    System.out.println("Shortest path with Dijkstra");
+    Dijkstra dijkstra = new Dijkstra();
+    dijkstra.shortestPath();
+
   }
 }

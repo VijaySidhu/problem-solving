@@ -62,7 +62,7 @@ public class Dijkstra {
     q.add(new Pair<>(startVertex, 0));
     while (q.isEmpty() == false) {
       Pair<Integer, Integer> vertexPair = q.remove();
-      Integer vertex = vertexPair.getValue();
+      Integer vertex = vertexPair.getKey();
       // Get all neighbours
       List<Pair<Integer, Integer>> adjVertices = adjacencyList[vertexPair.getKey()];
 
