@@ -75,9 +75,36 @@ Else if for all vertices the function returns false return false.
     scc.setStronglyConnectedG(g.getAdjListMap());
     scc.setVertices(5);
     System.out.println("SCC");
-    // scc.printStronglyConnectedComponents();
+    // Kusaraju's not best use tarjan
+    scc.printStronglyConnectedComponents();
     StronglyConnected sc = new StronglyConnected();
+    // Kusaraju's not best use tarjan
     sc.getStronglyConnected(g.getAdjListMap());
+    // Tarjan Algo to find strongly connected components
+    System.out.println("Tarjan Algo to find strongly connected components");
+    System.out.println();
+    int[][] graphAdjMatrix = new int[][]{
+        {0, 1, 0, 1},
+        {0, 0, 1, 0},
+        {1, 0, 0, 1},
+        {0, 0, 0, 0}
+    };
+    StronglyConnectedTarjan sct = new StronglyConnectedTarjan(graphAdjMatrix, 4);
+    sct.scTarjanAlgo();
+
+    // Shortest path for unweighted graph
+    System.out.println();
+    System.out.println("Shortest path for unweighted graph");
+    AdjList unweightedGraph = new AdjList();
+    unweightedGraph.addEdge(1, 3);
+    unweightedGraph.addEdge(3, 4);
+    unweightedGraph.addEdge(0, 5);
+    unweightedGraph.addEdge(5, 6);
+    unweightedGraph.addEdge(6, 6);
+
+    ShortestPathUnWeightedGraph sug = new ShortestPathUnWeightedGraph(7, 2,
+        unweightedGraph.getAdjListMap());
+    sug.shortestPathUnweightedGraph();
 
   }
 }
