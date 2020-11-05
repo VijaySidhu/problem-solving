@@ -96,13 +96,12 @@ Else if for all vertices the function returns false return false.
     System.out.println();
     System.out.println("Shortest path for unweighted graph");
     AdjList unweightedGraph = new AdjList();
-    unweightedGraph.addEdge(1, 3);
+    unweightedGraph.addEdge(0, 1);
+    unweightedGraph.addEdge(1, 2);
+    unweightedGraph.addEdge(2, 3);
     unweightedGraph.addEdge(3, 4);
-    unweightedGraph.addEdge(0, 5);
-    unweightedGraph.addEdge(5, 6);
-    unweightedGraph.addEdge(6, 6);
 
-    ShortestPathUnWeightedGraph sug = new ShortestPathUnWeightedGraph(7, 2,
+    ShortestPathUnWeightedGraph sug = new ShortestPathUnWeightedGraph(8, 0,
         unweightedGraph.getAdjListMap());
     sug.shortestPathUnweightedGraph();
 

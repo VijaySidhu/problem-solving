@@ -69,8 +69,5 @@ public class ShortestPathUnWeightedGraph {
       System.out.print("Distance to " + (char) (i + 'A') + " is " + distance[i]);
       System.out.println(" from path " + (char) (path[i] + 'A'));
     }
-
   }
-
-
 }
