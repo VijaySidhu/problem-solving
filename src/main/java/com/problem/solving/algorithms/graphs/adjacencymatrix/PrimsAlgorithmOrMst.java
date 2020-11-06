@@ -15,4 +15,7 @@ public class PrimsAlgorithmOrMst {
                    then update key value as weight of u to v.
 
    */
+  public void minimumSpanningTreeWithPrims(int[][] graph) {
+
+  }
 }
