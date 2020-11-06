@@ -55,21 +55,27 @@ public class Dijkstras {
 
     // Find shortest path of all vertices
     for (int count = 0; count < numberOfVertices - 1; count++) {
-      // Always pick minimum distance vertex (Not processed)
-      int u = minDistace(distance, spt);
-      // Mark picked vertex as processed
+      // Pick the minimum distance vertex from the set of vertices
+      // not yet processed. u is always equal to src in first
+      // iteration.
+      int u = minDistance(distance, spt);
+
+      // Mark the picked vertex as processed
       spt[u] = true;
-      // Update distance value of all neighbours
-      //  if neighbour is not addressed and distance of neighbour is > distance of parent+weight
-      for (int neighbour = 0; neighbour < numberOfVertices; neighbour++) {
-        int weight = graph[u][neighbour];
-        if (spt[neighbour] == false && distance[neighbour] > distance[u] + weight
-            && distance[neighbour] != Integer.MAX_VALUE
-            && weight != 0) {
-          distance[neighbour] = distance[u] + weight;
+
+      // Update dist value of the adjacent vertices of the
+      // picked vertex.
+      for (int v = 0; v < numberOfVertices; v++)
+
+      // Update dist[v] only if is not in sptSet, there is an
+      // edge from u to v, and total weight of path from src to
+      // v through u is smaller than current value of dist[v]
+      {
+        if (!spt[v] && graph[u][v] != 0 && distance[u] != Integer.MAX_VALUE
+            && distance[u] + graph[u][v] < distance[v]) {
+          distance[v] = distance[u] + graph[u][v];
         }
       }
-
     }
     // Print distance array to get shortest path
     printShortestPath(distance);
@@ -85,7 +91,7 @@ public class Dijkstras {
 
   // Utility function to find the vertex with minimum distance value,
   // from the set of vertices not yet included in shortest path
-  private int minDistace(int[] distance, Boolean[] spt) {
+  private int minDistance(int[] distance, Boolean[] spt) {
     // Initialize min value
     int min = Integer.MAX_VALUE, min_index = -1;
     for (int v = 0; v < numberOfVertices; v++) {
@@ -96,6 +102,4 @@ public class Dijkstras {
     }
     return min_index;
   }
-
-
 }
