@@ -3,7 +3,7 @@ package com.problem.solving.algorithms.graphs.weighted;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex implements Comparable<Vertex> {
+public class Vertex {
 
   private String name;
 
@@ -54,15 +54,5 @@ public class Vertex implements Comparable<Vertex> {
 
   public void setMinDistance(double minDistance) {
     this.minDistance = minDistance;
-  }
-
-  @Override
-  public String toString() {
-    return name;
-  }
-
-  @Override
-  public int compareTo(Vertex otherVertex) {
-    return Double.compare(this.minDistance, otherVertex.minDistance);
   }
 }

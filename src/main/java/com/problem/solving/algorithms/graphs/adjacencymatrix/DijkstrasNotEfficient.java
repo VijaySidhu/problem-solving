@@ -1,10 +1,11 @@
 package com.problem.solving.algorithms.graphs.adjacencymatrix;
 
 
-public class Dijkstras {
+public class DijkstrasNotEfficient {
 
 
   /*
+        Time Complexity of the implementation is O(V^2).
   1. Create an array (SPT) that keeps track of nodes who distance is calculated and finalized
   2. Create distance array and initialize with MAX value.
       i. Assign ZERO distance value to source vertex
@@ -21,12 +22,12 @@ public class Dijkstras {
 
   private int numberOfVertices;
 
-  public Dijkstras(int numberOfVertices) {
+  public DijkstrasNotEfficient(int numberOfVertices) {
     this.numberOfVertices = numberOfVertices;
   }
 
   public static void main(String[] args) {
-    Dijkstras dijkstras = new Dijkstras(9);
+    DijkstrasNotEfficient dijkstrasNotEfficient = new DijkstrasNotEfficient(9);
     /* Let us create the example graph discussed above */
     int graph[][] = new int[][]{{0, 4, 0, 0, 0, 0, 0, 8, 0},
         {4, 0, 8, 0, 0, 0, 0, 11, 0},
@@ -37,7 +38,7 @@ public class Dijkstras {
         {0, 0, 0, 0, 0, 2, 0, 1, 6},
         {8, 11, 0, 0, 0, 0, 1, 0, 7},
         {0, 0, 2, 0, 0, 0, 6, 7, 0}};
-    dijkstras.dijkstra(graph, 0);
+    dijkstrasNotEfficient.dijkstra(graph, 0);
   }
 
   public void dijkstra(int[][] graph, int source) {

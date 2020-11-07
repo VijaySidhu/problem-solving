@@ -78,7 +78,7 @@ public class Dijkstra {
     list = new ArrayList<>();
     adjacencyList[4] = list;
     queue = new PriorityQueue<>(Comparator.comparingInt(Pair::getValue));
-    queue.add(new Pair<>(startVertex, 0));
+    queue.add(new Pair<>(startVertex, 0)); // Add start vertex and weight in Queue
   }
 
   public void shortestPath() {
