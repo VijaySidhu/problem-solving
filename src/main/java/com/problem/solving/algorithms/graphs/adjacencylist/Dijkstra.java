@@ -2,19 +2,35 @@ package com.problem.solving.algorithms.graphs.adjacencylist;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 import javafx.util.Pair;
 
 /*
-Mark your selected initial node with a current distance of 0 and the rest with infinity.
-Set the non-visited node with the smallest current distance as the current node C.
-For each neighbour N of your current node C: add the current distance of C with the weight of the edge connecting C-N. If it's smaller than the current distance of N, set it as the new current distance of N.
-Mark the current node C as visited.
-If there are non-visited nodes, go to step 2.
+    Time complexity is O(E logV)
  */
 public class Dijkstra {
 
+  /*
+        Create Distance array which will hold distance from start vertex.
+        Create Path array which will hold vertex which we got shortest distance
+        Create Priority queue which will hold vertex next to be processed but in order of increasing weights
+         Pseudocode
+           i. Initialize distance for all vertices to inifinity. Set distance of source vertex to ZERO
+          ii. Set path for source vertex to itself e.g path[sourceV] = sourceV
+          iii.Add source vertex in priority queue with priority 0
+          iv. Do the following until queue is not empty
+                * Poll vertex (v) from queue & iterate through all adjacent vertices (neighbors)
+                   ^ Update distance of neighbor
+                        if(distance[neighbor] > distance[v]+weight)
+                           then distance[v]  = distance[u]+weight
+                           path[neighbor] = v;
+                   ^ Add neighbor in queue
+
+
+
+  */
   private int numberOfVertices;
 
   //Pair(vertex, weight)
@@ -26,13 +42,15 @@ public class Dijkstra {
 
   private int startVertex = 0;
 
+  private PriorityQueue<Pair<Integer, Integer>> queue;
+
   public Dijkstra() {
     this.numberOfVertices = 5;
     this.adjacencyList = new ArrayList[numberOfVertices];
     path = new int[numberOfVertices];
     distance = new int[numberOfVertices];
     // Fill an array with -1
-    Arrays.fill(distance, -1);
+    Arrays.fill(distance, Integer.MAX_VALUE);
     // Distance of start vertex to itself is always zero
     distance[startVertex] = 0;
     // update path of start vertex to itself
@@ -59,16 +77,14 @@ public class Dijkstra {
 
     list = new ArrayList<>();
     adjacencyList[4] = list;
-
-
+    queue = new PriorityQueue<>(Comparator.comparingInt(Pair::getValue));
+    queue.add(new Pair<>(startVertex, 0));
   }
 
   public void shortestPath() {
-    PriorityQueue<Pair<Integer, Integer>> q = new PriorityQueue<>(
-        (a, b) -> a.getValue() - b.getValue());
-    q.add(new Pair<>(startVertex, 0));
-    while (q.isEmpty() == false) {
-      Pair<Integer, Integer> vertexPair = q.remove();
+
+    while (queue.isEmpty() == false) {
+      Pair<Integer, Integer> vertexPair = queue.remove();
       Integer vertex = vertexPair.getKey();
       // Get all neighbours
       List<Pair<Integer, Integer>> adjVertices = adjacencyList[vertexPair.getKey()];
@@ -86,7 +102,7 @@ public class Dijkstra {
           if (distance[adjVertex] == -1 || distance[adjVertex] > newDistance) {
             distance[adjVertex] = newDistance;
             path[adjVertex] = vertex;
-            q.add(new Pair<>(adjVertex, distance[adjVertex]));
+            queue.add(new Pair<>(adjVertex, distance[adjVertex]));
           }
 
         }
