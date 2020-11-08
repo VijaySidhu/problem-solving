@@ -40,7 +40,7 @@ public class Runner {
         .asList(edgeAB, edgeAC, edgeBC, edgeBD, edgeBE, edgeDC, edgeBD, edgeDB, edgeED);
 
     BellmanFord bmf = new BellmanFord(vertices, edges);
-    bmf.shortestPath(vertexA, vertexC);
+    bmf.shortestPath(vertexA);
     bmf.printDistance();
   }
 }

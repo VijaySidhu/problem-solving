@@ -28,7 +28,7 @@ public class BellmanFord {
     this.edges = edges;
   }
 
-  public void shortestPath(Vertex sourceVertex, Vertex targetVertex) {
+  public void shortestPath(Vertex sourceVertex) {
     sourceVertex.setMinDistance(0);
 
     // v-1 iteration
