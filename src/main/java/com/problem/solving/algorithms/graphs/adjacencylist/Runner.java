@@ -59,11 +59,11 @@ Else if for all vertices the function returns false return false.
     directedGraph.addEdge(4, 1);
     directedGraph.addEdge(2, 3);
     directedGraph.addEdge(3, 1);
-    TopologicalSorting topologicalSorting = new TopologicalSorting();
-    topologicalSorting.setAdjMap(directedGraph.getAdjListMap());
-    topologicalSorting.setV(6);
+    TopologicalSortingWithDFS topologicalSortingWithDFS = new TopologicalSortingWithDFS();
+    topologicalSortingWithDFS.setAdjMap(directedGraph.getAdjListMap());
+    topologicalSortingWithDFS.setV(6);
     // Sort and print 5 4 2 3 1 0
-    topologicalSorting.topologicalSortedGraph();
+    topologicalSortingWithDFS.topologicalSortedGraph();
     // Strongly connected component
     AdjList g = new AdjList();
     g.addEdge(1, 0);

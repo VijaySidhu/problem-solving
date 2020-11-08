@@ -8,8 +8,9 @@ import java.util.Stack;
 Topological sorting for Directed Acyclic Graph (DAG) is a linear
 ordering of vertices such that for every directed edge u v,
  vertex u comes before v in the ordering.
+
  */
-public class TopologicalSorting {
+public class TopologicalSortingWithDFS {
 
 
   private Map<Integer, List<Integer>> adjMap;

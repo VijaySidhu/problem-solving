@@ -5,9 +5,13 @@ import java.util.Map;
 
 public class DetectCycle {
 
-  /**
-   * DFS can be used to detect cycle in graph. DFS for connected graph produces tree. There is cycle
-   * in graph only if there is back edge(Edge from node to itself ) present
+  /*
+   * DFS can be used to detect cycle in graph.
+   * DFS for connected graph produces tree. There is cycle
+   * in graph only if there is back edge(Edge from node to itself )
+   *  present
+   * Time complexity O(V+E)
+   * Space O(V)
    */
 
   private Map<Integer, List<Integer>> adjListMap;
