@@ -28,6 +28,5 @@ public class Runner {
 
     BellmanFord bmf = new BellmanFord(vertices, edges);
     bmf.shortestPath(vertexA);
-    bmf.printDistance();
   }
 }

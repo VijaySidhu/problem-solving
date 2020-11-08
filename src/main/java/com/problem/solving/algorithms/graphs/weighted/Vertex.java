@@ -13,6 +13,7 @@ public class Vertex {
 
   private Vertex previosVertex;
 
+  // Initialize with INFINITY
   private double minDistance = Double.MAX_VALUE;
 
   public Vertex(String name) {
