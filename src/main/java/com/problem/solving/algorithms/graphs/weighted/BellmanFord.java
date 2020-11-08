@@ -60,6 +60,7 @@ public class BellmanFord {
   }
 
   private boolean hasCycle(Edge edge) {
+    // if( dist[v] > dist[u]+weight it means cycle
     return (edge.getStartVertex().getMinDistance() + edge.getWeight()) < edge.getTargetVertex()
         .getMinDistance();
   }
