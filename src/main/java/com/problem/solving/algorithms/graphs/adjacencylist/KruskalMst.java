@@ -7,16 +7,11 @@ import java.util.PriorityQueue;
 public class KruskalMst {
 
   /*
-     Alway select least weight edge to sart with and go in same fashion
-     Any edge that creates cycle ignore that edge this approach minimum spanning tree for graph
-     Time complexity (O(E log V))
-     First, the edge having minimum cost/weight is found in the given graph.
-The two initial vertices (vertex A, B of minimum cost edge) is added to visited/added set.
-Now, all the connected edges with newly added vertex are added to priority queue.
-The least cost vertex (add all the connected edges of pop vertex to priority queue) is popped from the priority queue and repeat until number of edges is equal to vertices-1.
-By using priority queue time complexity will be reduced to (O(E log V)) where E is the number of edges and V is the number of vertices.
-Pair class is also used to store the weights.
-   */
+    Iterate over all edges and do the following
+     1. Select an Edge (uv) with minimum weight
+      * If selected edge is not making cycle add it to list of minimum spanning tree (mst)
+            Time complexity (O(E log V)) with priority queue
+       */
   public static void main(String[] args) {
 
     int noOfVertices = 7;
