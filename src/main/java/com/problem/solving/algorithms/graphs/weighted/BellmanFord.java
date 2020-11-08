@@ -37,13 +37,13 @@ public class BellmanFord {
         if (edge.getStartVertex().getMinDistance() == Double.MAX_VALUE) {
           continue;
         }
-        Vertex v = edge.getStartVertex();
-        Vertex u = edge.getTargetVertex();
+        Vertex u = edge.getStartVertex();
+        Vertex v = edge.getTargetVertex();
 
-        double newDistance = v.getMinDistance() + edge.getWeight();
-        if (newDistance < u.getMinDistance()) {
-          u.setMinDistance(newDistance);
-          u.setPreviosVertex(v);
+        double newDistance = u.getMinDistance() + edge.getWeight();
+        if (newDistance < v.getMinDistance()) {
+          v.setMinDistance(newDistance);
+          v.setPreviosVertex(u);
         }
       }
     }
