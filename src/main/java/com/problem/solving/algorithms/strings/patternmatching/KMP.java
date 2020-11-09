@@ -7,12 +7,16 @@ The basic idea behind KMP’s algorithm is: whenever we detect a mismatch
  matching the characters that we know will anyway match.
  Works on Proper prefix and proper prefix
  No back tracking of text
- Time complexity O(M+N) M is length of text and N is length of pattern
+ Time complexity
+      O(M) is preprocessing time O(N) is matching time
+so TC =       O(M+N) M is length of text and N is length of pattern
+   Space = O(M)
  */
 
 public class KMP {
 
-  /*
+  /*  Find longest prefix and suffix and if mismatch instead of starting from first char again
+      skip prefix and suffix pattern
         Preprocessing of pattern is required. We prepare integer array
         that tell us how many characters to be skipped. We prepare
         an auxiliary array lps (Longest proper prefix) size of pattern.
@@ -22,10 +26,16 @@ public class KMP {
         Find prefix and suffix and in case of mismatch skip prefix suffix(Refer to LPS)
         https://www.youtube.com/watch?v=gtAPdVHCSQA&ab_channel=UnacademyComputerScience
         Match char at i and j in pattern assign 0 if mistmach if match increment and assign first index
+        We start comparison of pat[j] with j = 0 with characters of current window of text.
+          1. We keep matching characters txt[i] and pat[j] and keep incrementing i and j while pat[j] and txt[i] keep matching.
+          2. When we see a mismatch
+              *. We know that characters pat[0..j-1] match with txt[i-j…i-1] (Note that j starts with 0 and increment it only when there is a match).
+              *. We also know (from above definition) that lps[j-1] is count of characters of pat[0…j-1] that are both proper prefix and suffix.
+              *. From above two points, we can conclude that we do not need to match these lps[j-1] characters with txt[i-j…i-1] because we know that these characters will anyway match. Let us consider above example to understand this.
    */
   public static void main(String[] args) {
     KMP kmp = new KMP();
-    kmp.search("ABABCABAB", "ABABDABACDABABCABAB");
+    kmp.search("AABA", "AABAACAADAABAABA");
   }
 
   public void search(String pattern, String text) {
@@ -60,7 +70,7 @@ public class KMP {
   }
 
   private int[] computeLPS(String pattern) {
-    int len = 0;
+    int j = 0;
     int i = 1;
     int lengthOfPatten = pattern.length();
     int[] lps = new int[lengthOfPatten];
@@ -70,17 +80,18 @@ public class KMP {
     // Note lps of first char is ZERO so thats why we are starting i from 1
     while (i < lengthOfPatten) {
       // Compare first two characters of pattern
-      if (pattern.charAt(i) == pattern.charAt(len)) {
-        len++;
-        lps[i] = len; // lps of i will be index previous char
+      if (pattern.charAt(i) == pattern.charAt(j)) {
+        j++;
+        lps[i] = j; // lps of i will be index previous char
         i++;
       } else {
 
-        if (len != 0) { // TODO understand this
-          len = lps[len - 1];
+        // If there is no match and
+        if (j != 0) { // TODO understand this
+          j = lps[j - 1];
 
         } else {
-          lps[i] = len; // If length is zero then lps of next char is zero and increment next
+          lps[i] = j; // If length is zero then lps of next char is zero and increment next
           i++;
         }
       }
