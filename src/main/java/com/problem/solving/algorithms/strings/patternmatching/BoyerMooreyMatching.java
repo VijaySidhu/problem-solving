@@ -66,6 +66,7 @@ public class BoyerMooreyMatching {
       // If texts are matching decrement j
       while (j >= 0 && pattern[j] == str[shift + j]) {
         j--;
+      }
            /* Shift the pattern so that the next
                  character in text aligns with the last
                  occurrence of it in pattern.
@@ -73,16 +74,13 @@ public class BoyerMooreyMatching {
                  the case when pattern occurs at the end
                  of text */
         if (j < 0) {
+          System.out.println("Pattern occurs at shift " + shift);
           shift = shift + ((shift + patternLength < textLength) ? patternLength - badChar[str[
               shift + patternLength]] : 1);
 
         } else {
-          shift = shift + (max(shift + patternLength < textLength) ? patternLength - badChar[str[
-              shift + patternLength]] : 1));
+          shift = shift + (max(1, j - badChar[str[shift + j]]));
         }
-
-      }
-
     }
 
   }
