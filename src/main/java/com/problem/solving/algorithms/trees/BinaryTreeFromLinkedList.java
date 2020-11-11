@@ -3,8 +3,16 @@ package com.problem.solving.algorithms.trees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
+/*
  * Created by VijaySidhu on 2/1/2018.
+ * Read Linked List
+ *  1. Set first Node as root node.
+ *  2. Add created root node into queue and shift pointer to read next element.
+ *  3. Iterate until q is not empty and do the following
+ *         a.) Remove and item from queue and create left node, add it into queue
+ *             and then shift pointer
+ *         b.) Read next node data and create right child, add into queue then shift pointer
+ *         c.) Set left and right child of parent tree node
  */
 public class BinaryTreeFromLinkedList {
 
