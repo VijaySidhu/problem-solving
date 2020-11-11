@@ -15,17 +15,15 @@ so TC =       O(M+N) M is length of text and N is length of pattern
 
 public class KMP {
 
-  /*  Find longest prefix and suffix and if mismatch instead of starting from first char again
-      skip prefix and suffix pattern
-        Preprocessing of pattern is required. We prepare integer array
+  /*  https://www.youtube.com/watch?v=gtAPdVHCSQA&ab_channel=UnacademyComputerScience
+        Preprocessing of pattern is required. We prepare integer array (LPS)
         that tell us how many characters to be skipped. We prepare
         an auxiliary array lps (Longest proper prefix) size of pattern.
         Use LPS to decide next position if mismatch
-        if char from pattern and char from text is matching increment
-        index in pattern and char
-        Find prefix and suffix and in case of mismatch skip prefix suffix(Refer to LPS)
+
         https://www.youtube.com/watch?v=gtAPdVHCSQA&ab_channel=UnacademyComputerScience
         Match char at i and j in pattern assign 0 if mistmach if match increment and assign first index
+
         We start comparison of pat[j] with j = 0 with characters of current window of text.
           1. We keep matching characters txt[i] and pat[j] and keep incrementing i and j while pat[j] and txt[i] keep matching.
           2. When we see a mismatch
