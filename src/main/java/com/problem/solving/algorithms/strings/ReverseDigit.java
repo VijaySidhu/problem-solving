@@ -9,6 +9,8 @@ public class ReverseDigit {
     It can be done similar to reversing a string
     1. Repeatedly pop last digit of string and append it to back of rev
     2. print rev
+    Time Complexity: O(log(x)).
+    Space Complexity: O(1).
    */
 
   public static int reverse(int x) {
