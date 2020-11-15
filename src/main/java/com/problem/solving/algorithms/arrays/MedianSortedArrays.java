@@ -26,14 +26,13 @@ public class MedianSortedArrays {
     //
     if (endA - startA == 1) {
       return (Math.max(arrOne[startA],
-          arrTwo[startB])
-          + Math.min(arrOne[endA], arrTwo[endB]))
+          arrTwo[startB]) + Math.min(arrOne[endA], arrTwo[endB]))
           / 2;
     }
     // Get median of array one
     int medianOfArrayOne = median(arrOne, startA, endA);
     //Get median of array two
-    int medianOfArrayTwo = median(arrTwo, 0, arrTwo.length - 1);
+    int medianOfArrayTwo = median(arrTwo, startA, endB);
 
     // if both medians are equal we are done here
     if (medianOfArrayOne == medianOfArrayTwo) {
