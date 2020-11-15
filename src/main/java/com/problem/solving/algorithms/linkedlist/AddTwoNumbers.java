@@ -24,6 +24,11 @@ public class AddTwoNumbers {
     }
   }
 
+  /*
+    1. Traverse two linked list from start to end.
+    2. Add two digits each from respective linked lists plus carry. If any list reached at end take 0;
+    3. If sum of two digits is greater then 10 take carry as 1 and current digit as sum%10;
+   */
   public static Node addTwoNumbers(Node l1, Node l2) {
     int carry = 0;
     Node dummyHead = new Node(0, null);

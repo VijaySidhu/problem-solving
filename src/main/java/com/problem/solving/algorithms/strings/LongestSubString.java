@@ -20,6 +20,7 @@ Explanation: The answer is "b", with the length of 1.
 public class LongestSubString {
 
   public static void main(String[] args) {
+
     System.out.println(longestSubString("abcabcbb"));
   }
 
@@ -32,6 +33,8 @@ public class LongestSubString {
  we don't need to increase i little by little.
  We can skip all the elements in the range [i, j']
  and let i to be j' + 1 directly.
+   Time complexity : O(n) Index j will iterate n times.
+   Space complexity (HashMap) : O(min(m, n)). Same as the previous approach.
    */
   private static int longestSubString(String str) {
     int length = str.length();
@@ -42,7 +45,9 @@ public class LongestSubString {
       if (mapOfCharToIndex.containsKey(str.charAt(j))) {
         i = Math.max(mapOfCharToIndex.get(str.charAt(j)), i);
       }
+      // Compare previous length with current and get maximum
       ans = Math.max(ans, j - i + 1);
+      // Character to index mapping
       mapOfCharToIndex.put(str.charAt(j), j + 1);
     }
     return ans;
