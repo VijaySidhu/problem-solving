@@ -14,12 +14,51 @@ public class StringToInt {
           3. Build the result string using above algorithm until there exists a non
              whitespace character that is number 0-9.Simultaneously, check
              for overflow/underflow conditions at each step
+
+      example : Numerical value is decimal value represented as base 10 in number system, each digit can be expressed as multiples
+      of powers of 10.
+
+      Example - "142" can repseneted as  "142" can be represented as 1 * (10^2) + 4 * (10^1) + 2 * (10^0)1∗(102)+4∗(101)+2∗(100)
+
+
     */
 
     public static void main(String[] args) {
+        System.out.println(atoi("123"));
         System.out.println(parseInt("123", 10));
     }
 
+    // atoi
+    public static int atoi(String s) {
+        int i = 0;
+        int result = 0;
+        int sign = 1;
+        // Check String length
+        if (s.length() == 0) {
+            throw new NumberFormatException(s);
+        }
+        // Discard all whitespaces in the beginning
+        while (i < s.length() && s.charAt(i) == ' ') {
+            i++;
+        }
+        // Check for sign
+        if (i < s.length() && (s.charAt(i) == '+' || s.charAt(i) == '-')) {
+            sign = s.charAt(i) == '+' ? 1 : -1;
+        }
+
+        // Build result check overflow and underflow condition
+        while (i < s.length() && s.charAt(i) >= '0' && s.charAt(i) <= '9') {
+
+            if (result > Integer.MAX_VALUE / 10 || (result == Integer.MAX_VALUE / 10 && s.charAt(i) - '0' > Integer.MAX_VALUE % 10)) {
+                return (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            result = result * 10 + (s.charAt(i++) - '0');
+
+        }
+        return result * sign;
+    }
+
+    // Java Implementation
     public static int parseInt(String s, int radix) throws NumberFormatException {
 
         if (s == null) {
