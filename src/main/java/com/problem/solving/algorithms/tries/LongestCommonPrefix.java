@@ -1,5 +1,11 @@
 package com.problem.solving.algorithms.tries;
+/*
+Time complexity : preprocessing O(S), where S is the number of all characters in the array, LCP query O(m).
 
+Trie build has O(S) time complexity. To find the common prefix of q in the Trie takes in the worst case O(m).
+
+Space complexity : O(S). We only used additional SS extra space for the Trie.
+ */
 public class LongestCommonPrefix {
 
     static final int ALPHABET_SIZE = 26;
