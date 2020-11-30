@@ -9,8 +9,10 @@ import java.util.Map;
  * Let the dictionary contains the following words: {are, area, base, cat, cater, children,
  * basement}
  * <p>
- * Below are some input/output examples: -------------------------------------- Input String Output
- * -------------------------------------- caterer                 cater basemexy base child < Empty
+ * Below are some input/output examples: ------------------------------------
+ * -- Input String Output
+ * -----------------------------------
+ * --- caterer                 cater basemexy base child < Empty
  * >
  */
 public class LongestPrefixMatching {
@@ -22,7 +24,7 @@ public class LongestPrefixMatching {
    * match. Finally, return the longest match.
    */
 
-
+//  Time complexity of finding the longest prefix is O(n)
   public static void main(String[] args) {
     Trie dict = new Trie();
     dict.insertRecursive("are");
