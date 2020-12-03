@@ -4,6 +4,8 @@ import java.util.*;
 
 /*
     Write an auto complete class that returns all dictionary words
+    Creating the trie is a bit worse, with O(n*m) where n is the size of the username list and m the average length of a username.
+    The worst case complexity for a lookup in the trie now is O(n)
  */
 public class AutoComplete {
 
