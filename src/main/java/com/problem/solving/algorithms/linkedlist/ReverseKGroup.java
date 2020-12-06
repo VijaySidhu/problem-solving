@@ -12,20 +12,23 @@ public class ReverseKGroup {
     public static Node reverseKGroup(Node head, int k) {
         int count = 0;
         Node current = head;
-        Node next = null;
-        Node prev = null;
+        Node second = null;
+        Node first = null;
         // Reverse first K nodes of linked list
         while (count < k && current != null) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+            second = current.next;
+            current.next = first;
+            first = current;
+            current = second;
             count++;
         }
-        if (next != null) {
-            head.next = reverseKGroup(next, k);
+         /* next is now a pointer to (k+1)th node
+          Recursively call for the list starting from current.
+          And make rest of the list as next of first node */
+        if (second != null) {
+            head.next = reverseKGroup(second, k);
         }
 
-        return prev;
+        return first;
     }
 }
