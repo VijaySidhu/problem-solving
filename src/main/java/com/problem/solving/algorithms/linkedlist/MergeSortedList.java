@@ -1,8 +1,5 @@
 package com.problem.solving.algorithms.linkedlist;
 
-import java.util.List;
-import java.util.Objects;
-
 /**
  * Created by VijaySidhu on 1/29/2018.
  * This will merge two sorted linked list without taking extra space
@@ -22,6 +19,11 @@ public class MergeSortedList {
         }
     }
 
+    /*
+    i.  The idea is to pair up K lists and merge each pair in linear time using O(1) space
+    ii. After the first cycle,K/2 lists are left each of size 2*N. After the second cycle, K/4 lists are left each of size 4*N and so on.
+    iii. Repeat procedure until we have only one list left
+     */
     public static Node mergeKSortedList(Node[] nodes) {
         int end = nodes.length - 1;
         while (end > 0) {

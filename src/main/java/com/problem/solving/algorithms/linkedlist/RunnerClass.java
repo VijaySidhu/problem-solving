@@ -47,7 +47,7 @@ public class RunnerClass {
          */
         System.out.println("");
         System.out.println("Reverse Pairs");
-        ProblemSolverUtils.printer(ReversePairs.reversePairs(ProblemSolverUtils.createLinkedList()));
+        ProblemSolverUtils.printer(ReverseSwapPairs.reversePairs(ProblemSolverUtils.createLinkedList()));
 
         /**
          * Merge two sorted linked list
