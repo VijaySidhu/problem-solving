@@ -9,6 +9,12 @@ public class ReverseKGroup {
         ProblemSolverUtils.printer(n);
     }
 
+    /*
+            Time Complexity: O(n).
+            Traversal of list is done only once and it has ‘n’ elements.
+            Auxiliary Space: O(n/k).
+            For each Linked List of size n, n/k or (n/k)+1 calls will be made during the recursion.
+     */
     public static Node reverseKGroup(Node head, int k) {
         int count = 0;
         Node current = head;

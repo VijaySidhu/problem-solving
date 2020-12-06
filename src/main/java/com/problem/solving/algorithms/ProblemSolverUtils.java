@@ -12,7 +12,8 @@ import java.util.Objects;
 public class ProblemSolverUtils {
 
     public static Node createLinkedList() {
-        Node nextNextNext = new Node(4, null);
+        Node nextNextNext5 = new Node(5, null);
+        Node nextNextNext = new Node(4, nextNextNext5);
         Node nextNext = new Node(3, nextNextNext);
         Node headNext = new Node(2, nextNext);
         Node head = new Node(1, headNext);

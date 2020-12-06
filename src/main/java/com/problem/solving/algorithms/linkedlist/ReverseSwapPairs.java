@@ -48,8 +48,10 @@ public class ReverseSwapPairs {
         }
 
         // Swapping first and second
+        Node first = new Node(head.next.getData(), null);
         Node second = new Node(head.getData(), null);
-        Node first = new Node(head.next.getData(), second);
+        first.next = second;
+
 
         // recursivly swap remaining items in the list till end of list
         Node recursedList = pairWiseSwap(head.next.next);
