@@ -27,6 +27,8 @@ public class CombinationSum {
     Each number in candidates may only be used once in the combination.
 
     Note: The solution set must not contain duplicate combinations.
+    TC  O(k * 2^N), where k is the average length of each possible solution. Copying such a possible solution list takes O(k) time.
+    SC 2^N each element is used once
      */
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> results = new ArrayList<>();
