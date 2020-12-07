@@ -31,7 +31,7 @@ public class SearchSortedRotated {
         }
         // if start to mid is sorted
         if (sortedRotatedArray[low] <= sortedRotatedArray[mid]) {
-            if (key >= sortedRotatedArray[mid] && key <= sortedRotatedArray[mid]) {
+            if (key >= sortedRotatedArray[low] && key <= sortedRotatedArray[mid]) {
                 return searchInRotatedArray(sortedRotatedArray, low, mid - 1, key);
             }
             return searchInRotatedArray(sortedRotatedArray, mid + 1, high, key);
@@ -42,5 +42,17 @@ public class SearchSortedRotated {
             return searchInRotatedArray(sortedRotatedArray, mid + 1, high, key);
         }
         return searchInRotatedArray(sortedRotatedArray, low, mid - 1, key);
+    }
+
+    public static void main(String[] args) {
+
+        int arr[] = {4, 5, 6, 7, 8, 9, 1, 2, 3};
+        int n = arr.length;
+        int key = 6;
+        int i = searchInRotatedArray(arr, 0, n - 1, key);
+        if (i != -1)
+            System.out.println("Index: " + i);
+        else
+            System.out.println("Key not found");
     }
 }
