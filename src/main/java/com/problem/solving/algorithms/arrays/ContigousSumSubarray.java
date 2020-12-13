@@ -5,9 +5,13 @@ package com.problem.solving.algorithms.arrays;
  */
 public class ContigousSumSubarray {
 
+    public static void main(String[] args) {
+        int[] arr = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println(maxSumOfSubArray(arr));
+    }
+
     /**
      * Kadane’s Algorithms  TC : O(N)
-     *
      */
     public static int maxSumOfSubArray(int[] input) {
         int maxSoFar = 0;
