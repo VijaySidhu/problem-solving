@@ -7,6 +7,10 @@ public class MultiplicationString {
 
     }
 
+    // O(mn) time, O(m+n) space
+    /*
+    We start from last digit of second number multiply it with first number. Then we multiply second digit of second number with first number, and so on. We add all these multiplications. While adding, we put i-th multiplication shifted.
+     */
     private static String multiply(String num1, String num2) {
         if (num1 == null || num2 == null) {
             return "0";
