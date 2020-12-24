@@ -5,6 +5,15 @@ package com.problem.solving.algorithms.trees;
  */
 public class LCA {
 
+    /*
+       The idea is to traverse the tree starting from the root.
+        If any of the given keys (n1 and n2) matches with the root, then the root is LCA (assuming that both keys are present).
+        If the root doesn’t match with any of the keys, we recur for the left and right subtree.
+        The node which has one key present in its left subtree and the other key present in the right subtree
+        is the LCA.
+        If both keys lie in the left subtree, then the left subtree has LCA also, otherwise, LCA lies in
+        the right subtree.
+     */
     //Time complexity of the above solution is O(n)
     public static Node lcaBinaryTree(Node root, int value1, int value2) {
         // Base case
