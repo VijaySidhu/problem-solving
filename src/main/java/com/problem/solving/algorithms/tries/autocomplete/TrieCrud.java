@@ -7,7 +7,7 @@ public class TrieCrud {
 
 
     // Insert word into trie
-    public void insert(String word, TrieNode root) {
+    public static void insert(String word, TrieNode root) {
         TrieNode currentNode = root;
         for (int i = 0; i < word.length(); i++) {
             Character ch = word.charAt(i);
@@ -23,7 +23,7 @@ public class TrieCrud {
     }
 
     // Search word in Trie
-    public boolean searchInTrie(String word, TrieNode root) {
+    public static boolean searchInTrie(String word, TrieNode root) {
         TrieNode currentNode = root;
         for (int i = 0; i < word.length(); i++) {
             Character ch = word.charAt(i);
@@ -38,7 +38,7 @@ public class TrieCrud {
     }
 
     // search if word exist by prefix
-    public TrieNode startsWithPrefix(String prefix, TrieNode root) {
+    public static TrieNode startsWithPrefix(String prefix, TrieNode root) {
         TrieNode currentNode = root;
         for (int i = 0; i < prefix.length(); i++) {
             Character ch = prefix.charAt(i);
