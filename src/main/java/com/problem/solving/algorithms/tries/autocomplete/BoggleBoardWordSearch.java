@@ -38,12 +38,12 @@ public class BoggleBoardWordSearch {
         boolean[][] visited = new boolean[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                dfs(board, visited, "", i, j, root, result);
+                dfs(board, visited, "", i, j, root, result, words);
             }
         }
     }
 
-    private static void dfs(char[][] board, boolean[][] visited, String str, int i, int j, TrieNode trieNode, Set<String> result) {
+    private static void dfs(char[][] board, boolean[][] visited, String str, int i, int j, TrieNode trieNode, Set<String> result, List<String> words) {
         int m = board.length;
         int n = board[0].length;
         if (i < 0 || j >= n || i >= m || j < 0) {
@@ -55,20 +55,20 @@ public class BoggleBoardWordSearch {
         // Append next char to string
         str = str + board[i][j];
         // Search for prefix in Trie Return if word is not in trie
-        if (Objects.isNull(TrieCrud.startsWithPrefix(str, trieNode))) {
+        if (null == TrieCrud.startsWithPrefix(str, trieNode)) {
             return;
         }
 
         // If string is in trie add it in result list
-        if (TrieCrud.searchInTrie(str, trieNode)) {
+        if (TrieCrud.searchInTrie(str, trieNode) && words.contains(str)) {
             result.add(str);
         }
 
         visited[i][j] = true;
-        dfs(board, visited, str, i - 1, j, trieNode, result);
-        dfs(board, visited, str, i + 1, j, trieNode, result);
-        dfs(board, visited, str, i, j - 1, trieNode, result);
-        dfs(board, visited, str, i, j + 1, trieNode, result);
+        dfs(board, visited, str, i - 1, j, trieNode, result, words);
+        dfs(board, visited, str, i + 1, j, trieNode, result, words);
+        dfs(board, visited, str, i, j - 1, trieNode, result, words);
+        dfs(board, visited, str, i, j + 1, trieNode, result, words);
         visited[i][j] = false;
     }
 
