@@ -1,14 +1,14 @@
 package com.problem.solving.algorithms.tries;
 
-public class Trie {
+public class TrieNotUsed {
 
-  private final TrieNode root;
+  private final TrieNode_NotUsed root;
 
-  public Trie() {
-    root = new TrieNode();
+  public TrieNotUsed() {
+    root = new TrieNode_NotUsed();
   }
 
-  public TrieNode getRoot() {
+  public TrieNode_NotUsed getRoot() {
     return root;
   }
 
@@ -16,12 +16,12 @@ public class Trie {
    * Iterative implementation of insert into trie
    */
   public void insert(String word) {
-    TrieNode current = root;
+    TrieNode_NotUsed current = root;
     for (int i = 0; i < word.length(); i++) {
       char ch = word.charAt(i);
-      TrieNode node = current.getChildren().get(ch);
+      TrieNode_NotUsed node = current.getChildren().get(ch);
       if (node == null) {
-        node = new TrieNode();
+        node = new TrieNode_NotUsed();
         current.getChildren().put(ch, node);
       }
       current = node;
@@ -37,18 +37,18 @@ public class Trie {
     insertRecursive(root, word, 0);
   }
 
-  private void insertRecursive(TrieNode current, String word, int index) {
+  private void insertRecursive(TrieNode_NotUsed current, String word, int index) {
     if (index == word.length()) {
       //if end of word is reached then mark endOfWord as true on current node
       current.setEndOfWord(true);
       return;
     }
     char ch = word.charAt(index);
-    TrieNode node = current.getChildren().get(ch);
+    TrieNode_NotUsed node = current.getChildren().get(ch);
 
     //if node does not exists in map then create one and put it into map
     if (node == null) {
-      node = new TrieNode();
+      node = new TrieNode_NotUsed();
       current.getChildren().put(ch, node);
     }
     insertRecursive(node, word, index + 1);
@@ -58,10 +58,10 @@ public class Trie {
    * Iterative implementation of search into trie.
    */
   public boolean search(String word) {
-    TrieNode current = root;
+    TrieNode_NotUsed current = root;
     for (int i = 0; i < word.length(); i++) {
       char ch = word.charAt(i);
-      TrieNode node = current.getChildren().get(ch);
+      TrieNode_NotUsed node = current.getChildren().get(ch);
       //if node does not exist for given char then return false
       if (node == null) {
         return false;
@@ -79,13 +79,13 @@ public class Trie {
     return searchRecursive(root, word, 0);
   }
 
-  private boolean searchRecursive(TrieNode current, String word, int index) {
+  private boolean searchRecursive(TrieNode_NotUsed current, String word, int index) {
     if (index == word.length()) {
       //return true of current's endOfWord is true else return false.
       return current.isEndOfWord();
     }
     char ch = word.charAt(index);
-    TrieNode node = current.getChildren().get(ch);
+    TrieNode_NotUsed node = current.getChildren().get(ch);
     //if node does not exist for given char then return false
     if (node == null) {
       return false;
@@ -103,7 +103,7 @@ public class Trie {
   /**
    * Returns true if parent should delete the mapping
    */
-  private boolean delete(TrieNode current, String word, int index) {
+  private boolean delete(TrieNode_NotUsed current, String word, int index) {
     if (index == word.length()) {
       //when end of word is reached only delete if currrent.endOfWord is true.
       if (!current.isEndOfWord()) {
@@ -114,7 +114,7 @@ public class Trie {
       return current.getChildren().size() == 0;
     }
     char ch = word.charAt(index);
-    TrieNode node = current.getChildren().get(ch);
+    TrieNode_NotUsed node = current.getChildren().get(ch);
     if (node == null) {
       return false;
     }

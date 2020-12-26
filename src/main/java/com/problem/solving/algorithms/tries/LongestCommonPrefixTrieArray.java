@@ -6,7 +6,7 @@ Trie build has O(S) time complexity. To find the common prefix of q in the Trie 
 
 Space complexity : O(S). We only used additional SS extra space for the Trie.
  */
-public class LongestCommonPrefix {
+public class LongestCommonPrefixTrieArray {
 
     static final int ALPHABET_SIZE = 26;
 
