@@ -1,5 +1,8 @@
 package com.problem.solving.algorithms.tries;
 
+import com.problem.solving.algorithms.tries.autocomplete.TrieCrud;
+import com.problem.solving.algorithms.tries.autocomplete.TrieNode;
+
 /**
  * Given a dictionary of words and an input string, find the longest prefix of the string which is
  * also a word in dictionary. Examples:
@@ -32,6 +35,32 @@ public class LongestPrefixMatching {
            i.) We only used additional SS extra space for the Trie.
 
      */
+
+    public static void main(String[] args) {
+        String[] in = new String[]{"apple", "ape", "april"};
+        System.out.println(longestCommonPrefix(in));
+    }
+
+    public static String longestCommonPrefix(String[] input) {
+        // Insert all words into TRIE
+        TrieNode root = new TrieNode("");
+        for (String word : input) {
+            TrieCrud.insert(word, root);
+        }
+        StringBuilder prefix = new StringBuilder();
+        for (String word : input) {
+            for (int i = 0; i < word.length(); i++) {
+                Character ch = word.charAt(i);
+                if (root.getChildren().containsKey(ch) && root.getChildren().size() == 1 && !root.isEndOfWord()) {
+                    prefix.append(ch);
+                    root = root.getChildren().get(ch);
+                } else {
+                    return prefix.toString();
+                }
+            }
+        }
+        return prefix.toString();
+    }
 
 
 }
