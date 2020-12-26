@@ -27,7 +27,7 @@ public class TrieNode {
     }
 
     public void setEndOfWord(boolean endOfWord) {
-        isEndOfWord = endOfWord;
+        this.isEndOfWord = endOfWord;
     }
 
     public String getPrefix() {

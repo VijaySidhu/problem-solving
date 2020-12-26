@@ -60,7 +60,8 @@ public class BoggleBoardWordSearch {
         }
 
         // If string is in trie add it in result list
-        if (TrieCrud.searchInTrie(str, trieNode) && words.contains(str)) {
+        TrieNode res = TrieCrud.searchInTrie(str, trieNode);
+        if (res != null && res.isEndOfWord()) {
             result.add(str);
         }
 

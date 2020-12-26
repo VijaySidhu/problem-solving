@@ -10,10 +10,10 @@ public class WordSearch {
             tc.insert(word, root);
         }
         // Check if word is in Trie
-        System.out.println(tc.searchInTrie("abc", root));
-        System.out.println(tc.searchInTrie("bd", root));
-        System.out.println(tc.searchInTrie("bsd", root));
-        System.out.println(tc.searchInTrie("ab", root));
+        System.out.println(tc.searchInTrie("abc", root) != null ? true : false);
+        System.out.println(tc.searchInTrie("bd", root) != null ? true : false);
+        System.out.println(tc.searchInTrie("bsd", root) != null ? true : false);
+        System.out.println(tc.searchInTrie("ab", root) != null ? true : false);
         System.out.println(tc.startsWithPrefix("cat", root));
         tc.findAllForPrefix("cat", root).stream().forEach(f -> {
             System.out.println(f);

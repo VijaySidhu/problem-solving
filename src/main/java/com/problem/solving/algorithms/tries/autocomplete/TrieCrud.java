@@ -22,19 +22,19 @@ public class TrieCrud {
         currentNode.setEndOfWord(true);
     }
 
-    // Search word in Trie
-    public static boolean searchInTrie(String word, TrieNode root) {
+    // Search word in Trie. Returns node if found else return null
+    public static TrieNode searchInTrie(String word, TrieNode root) {
         TrieNode currentNode = root;
         for (int i = 0; i < word.length(); i++) {
             Character ch = word.charAt(i);
             // Return false if key is missing
             if (!currentNode.getChildren().containsKey(ch)) {
-                return false;
+                return null;
             }
             // Move pointer to next node
             currentNode = currentNode.getChildren().get(ch);
         }
-        return true;
+        return currentNode;
     }
 
     // search if word exist by prefix
