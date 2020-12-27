@@ -9,11 +9,13 @@ public class QuickSort {
 
     private static int[] array;
 
-    /**
-     * O(nlogn)
-     * Pick Pivot
-     * Recursivly sort elements and put elements less than pivot on left side
-     * and greater on right side
+    /*
+          Best: O(nlog(n)) time | O(log(n)) space
+          Average: O(nlog(n)) time | O(log(n)) space
+          Worst: O(n^2) time | O(log(n)) space
+          Pick
+          Recursivly sort elements and put elements less than pivot on left side
+          and greater on right side
      */
     public static int[] quickSort(int lowerIndex, int higherIndex) {
         // Get the pivot element from the middle of the list
@@ -54,7 +56,8 @@ public class QuickSort {
         }
         return array;
     }
-    public static  void setArray(int[] array) {
+
+    public static void setArray(int[] array) {
         QuickSort.array = array;
     }
 }
