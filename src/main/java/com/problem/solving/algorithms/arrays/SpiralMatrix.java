@@ -20,7 +20,7 @@ public class SpiralMatrix {
     /*
         The answer will be all the elements in clockwise order from the first-outer layer,
         followed by the elements from the second-outer layer, and so on.
-        1. For each outer layer we want to iterate through its element in clockwise order starting from top left corner
+        1. For each outer layer (Parameter)we want to iterate through its element in clockwise order starting from top left corner
         Time Complexity: O(N) where N is the total number of elements in the input matrix.
          We add every element in the matrix to our final answer.
 
