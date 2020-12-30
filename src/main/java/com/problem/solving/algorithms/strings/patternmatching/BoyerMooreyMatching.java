@@ -78,6 +78,10 @@ public class BoyerMooreyMatching {
       // If pattern traverse is finished then it means we found pattern match index
       if (j < 0) {
         System.out.println("Pattern occurs at shift " + shift);
+        /* If there are more pattern exist calcualte shift for it.
+             1. If shift and pattern length is less than text length just shift by pattern length - bad match table otherwise
+             shift by 1
+         */
         shift = shift + ((shift + patternLength < textLength) ? patternLength - badChar[text[
                 shift + patternLength]] : 1);
 
