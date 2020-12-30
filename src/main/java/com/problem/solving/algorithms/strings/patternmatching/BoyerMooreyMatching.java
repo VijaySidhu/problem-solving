@@ -52,35 +52,34 @@ public class BoyerMooreyMatching {
     }
   }
 
-  static void search(char[] str, char[] pattern) {
+  static void search(char[] text, char[] pattern) {
     int patternLength = pattern.length;
-    int textLength = str.length;
+    int textLength = text.length;
     // Create bad char array
     int[] badChar = new int[NO_CHARS];
     // Fill badChar Array. m is length of pattern
-    badCharHeuristic(str, patternLength, badChar);
-    int shift = 0; // Algorithm will be calculating this
-    while (shift <= (textLength - patternLength)) {
+    badCharHeuristic(text, patternLength, badChar);
+    int shift = 0;
+    int numberOfShifts = textLength - patternLength;
+    while (shift <= (numberOfShifts)) {
+      // Pointer that points to last char of pattern we will keep decrementing this in case of char match
       int j = patternLength - 1;
 
-      // If texts are matching decrement j
-      while (j >= 0 && pattern[j] == str[shift + j]) {
+      // If last char of pattern matches with aligned char then shift pattern pointer to left
+      while (j >= 0 && pattern[j] == text[shift + j]) {
         j--;
       }
-           /* Shift the pattern so that the next
-                 character in text aligns with the last
-                 occurrence of it in pattern.
-                 The condition s+m < n is necessary for
-                 the case when pattern occurs at the end
-                 of text */
-        if (j < 0) {
-          System.out.println("Pattern occurs at shift " + shift);
-          shift = shift + ((shift + patternLength < textLength) ? patternLength - badChar[str[
-              shift + patternLength]] : 1);
+      // If pattern traverse is finished then it means we found pattern match index
+      if (j < 0) {
+        System.out.println("Pattern occurs at shift " + shift);
+        shift = shift + ((shift + patternLength < textLength) ? patternLength - badChar[text[
+                shift + patternLength]] : 1);
 
-        } else {
-          shift = shift + (max(1, j - badChar[str[shift + j]]));
-        }
+      }
+      // find index to shift pattern refers to badChar table
+      else {
+        shift = shift + (max(1, j - badChar[text[shift + j]]));
+      }
     }
 
   }
