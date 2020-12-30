@@ -29,6 +29,11 @@ package com.problem.solving.algorithms.strings.patternmatching;
               e.g  G C A A T G C C T A T   G  T  G  A C  C
                                    T A T   G T G
 
+    Worst Case TC is O(mn)
+    Preprocessing O(m+k)
+    Best case O(n/m)
+
+
  */
 public class BoyerMooreyMatching {
 
@@ -39,7 +44,7 @@ public class BoyerMooreyMatching {
   */
   private static final int NO_CHARS = 256;
 
-  // Preprocessing , build bad character heuristic
+  // Preprocessing , build bad character heuristic in worst case it takes O(mn)
   static void badCharHeuristic(char[] str, int pattLength, int badChar[]) {
 
     // Initialize bad character array with -1
@@ -53,6 +58,7 @@ public class BoyerMooreyMatching {
   }
 
   static void search(char[] text, char[] pattern) {
+    String a;
     int patternLength = pattern.length;
     int textLength = text.length;
     // Create bad char array
