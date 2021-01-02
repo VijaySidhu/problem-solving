@@ -24,29 +24,34 @@ public class Subsets {
         }
     }
 
+    /*
+
+     */
+
     public static List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> result = new ArrayList<>();
-
-        recurse(result, nums, new Stack<>(), 0);
-
-
-        return result;
+        List<List<Integer>> subset = new ArrayList<>();
+        dfs(subset, 0, nums, new ArrayList<>());
+        return subset;
     }
 
+    // Subset is final list of all subsets
+    // current is list identified for given index
+    private static void dfs(List<List<Integer>> subset, int index, int[] nums, List<Integer> current) {
+        // Add current create list for index into final list
+        if (current.size() > 0)
+            subset.add(new ArrayList<>(current));
 
-    private static void recurse(List<List<Integer>> result, int[] nums, Stack path, int position) {
-        if (position == nums.length) {
-            result.add(new ArrayList<>(path));
-
-            return;
+        // Iterate from index to length of array
+        for (int i = index; i < nums.length; i++) {
+            // Add current index into list
+            current.add(nums[i]);
+            // look for subsets with DFS and increment index
+            dfs(subset, i + 1, nums, current);
+            // Remove processed integer from list
+            current.remove(current.size() - 1);
         }
 
-        path.push(nums[position]);
-
-        recurse(result, nums, path, position + 1);
-
-        path.pop();
-
-        recurse(result, nums, path, position + 1);
     }
+
+
 }

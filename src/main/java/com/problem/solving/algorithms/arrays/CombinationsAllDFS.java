@@ -30,11 +30,15 @@ public class CombinationsAllDFS {
 
         return result;
     }
+    /*
+     Problem is same as finding subsets from given array. Only thing is it's limited by size so add size check before adding it to final list
+
+     */
 
     private static void dfs(int n, int k, int start, List<Integer> item,
                             List<List<Integer>> res) {
         if (item.size() == k) {
-            res.add(new ArrayList<Integer>(item));
+            res.add(new ArrayList<>(item));
             return;
         }
         for (int i = start; i <= n; i++) {

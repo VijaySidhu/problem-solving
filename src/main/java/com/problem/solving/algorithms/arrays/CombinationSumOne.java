@@ -22,9 +22,15 @@ public class CombinationSumOne {
 
     private static List<List<Integer>> combinationUptoSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
+
         backtrack(target, new ArrayList<>(), 0, candidates, result);
         return result;
     }
+    /*
+    Let N be the number of candidates, T be the target value, and M be the minimal value among the candidates.
+    Time Complexity: O(N^T/M+1). Total number of steps in DFS will be number of nodes in tree so TC is linear to number of nodes of execution tree
+    SC O(T/M)
+     */
 
     protected static void backtrack(int remain, List<Integer> comb, int start, int[] candidates, List<List<Integer>> results) {
         if (remain == 0) {

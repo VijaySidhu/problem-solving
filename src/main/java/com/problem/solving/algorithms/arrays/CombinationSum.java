@@ -11,7 +11,7 @@ import java.util.List;
 public class CombinationSum {
 
     public static void main(String[] args) {
-        int[] arr = new int[]{10, 1, 2, 7, 6, 1, 5};
+        int[] arr = new int[]{3, 4, 5};
         List<List<Integer>> ls = combinationSum2(arr, 8);
         ls.stream().forEach(s -> {
             s.stream().forEach(a -> {
@@ -45,6 +45,16 @@ public class CombinationSum {
         return results;
     }
 
+    /*
+        We could incrementally build combination and once we find the current combination is not valid,
+        we backtrack and try another option
+               []
+            /    \    \
+           [3]   [4]   [5]
+         /   |    \
+      [3,3] [3,4] [3,5]
+
+     */
     private static void toFindCombinationsToTarget(int[] candidates, List<List<Integer>> results, List<Integer> combination, int startIndex, int target) {
         if (target == 0) {
             results.add(new ArrayList<>(combination));
@@ -52,14 +62,6 @@ public class CombinationSum {
         }
 
         for (int i = startIndex; i < candidates.length; i++) {
-            if (i != startIndex && candidates[i] == candidates[i - 1]) {
-                continue;
-            }
-
-            if (candidates[i] > target) {
-                break;
-            }
-
             combination.add(candidates[i]);
             toFindCombinationsToTarget(candidates, results, combination, i + 1, target - candidates[i]);
             combination.remove(combination.size() - 1);
