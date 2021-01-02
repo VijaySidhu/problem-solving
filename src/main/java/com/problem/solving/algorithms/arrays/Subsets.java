@@ -11,7 +11,7 @@ public class Subsets {
     could be present or absent.
      */
     public static void main(String[] args) {
-        int[] num = new int[]{1, 2, 3, 4};
+        int[] num = new int[]{1, 2, 3,};
 
         List<List<Integer>> result = subsets(num);
 
