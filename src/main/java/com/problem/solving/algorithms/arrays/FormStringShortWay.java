@@ -10,7 +10,7 @@ public class FormStringShortWay {
     }
 
     // Worst case O(n+m) source and target
-    // Space complexity O(m)
+    // O(n)
     public static int shortestWay(String source, String target) {
         int i = 0; // for source string
         int j = 0; // for target string
