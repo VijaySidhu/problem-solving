@@ -4,42 +4,29 @@ public class Pow {
 
     public static void main(String[] args) {
         int x = 2;
-        int y = 3;
+        int y = 4;
 
         //System.out.println(power(x, y));
         System.out.println("Below is efficient O(logN)");
 
-        System.out.println(powerEfficient(x, y));
+        System.out.println(fastPower(x, y));
     }
 
-    /*
-    Approach 1
-    power(x, n) = power(x, n / 2) * power(x, n / 2);        // else n is even
-    power(x, n) = x * power(x, n / 2) * power(x, n / 2);   // if n is odd
-    Time Complexity: O(n)
-    Space Complexity: O(1)
-    Problem with this is each sub problem is computed twice for each recursive call.
-    We can optimize this by computing the solution of sub problem once only.
-     */
-    static int power(int x, int y) {
-        if (y == 0)
-            return 1;
-        else if (y % 2 == 0)
-            return power(x, y / 2) * power(x, y / 2);
-        else
-            return x * power(x, y / 2) * power(x, y / 2);
-    }
 
     /*
     Approach 2  Divide and conquer.
+    Assume we have got the result of x^n/2 and now we want to get result of x^n.
+    Let A be result of x^n/2, we can talk about x^n based on the parity of n respectively.
+    If n is even we can use the formula (x^n)^2=x^(2*n) to get x^n=A*A
+    If n is odd A*A=x^(n-1) we need to multiply another x to the result so x^n=A*A*x
 
     TC  O(logn)
      */
-    static int powerEfficient(int x, int y) {
+    static int fastPower(int x, int y) {
         int temp;
         if (y == 0)
             return 1;
-        temp = powerEfficient(x, y / 2);
+        temp = fastPower(x, y / 2);
 
         if (y % 2 == 0)
             return temp * temp;
