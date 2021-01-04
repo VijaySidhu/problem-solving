@@ -1,5 +1,11 @@
 package com.problem.solving.algorithms.arrays;
 
+import java.util.Arrays;
+
+/*
+  Given a non-empty array of decimal digits representing a non-negative integer,
+  increment one to the integer.
+ */
 public class PlusOne {
 
     /*
@@ -12,7 +18,7 @@ public class PlusOne {
     If the vectors add and increase the vector size, append 1 in the beginning.
      */
 
-    public int[] plusOne(int[] digits) {
+    public static int[] plusOne(int[] digits) {
         for (int i = digits.length - 1; i >= 0; i--) {
             if (digits[i] < 9) {
                 digits[i]++;
@@ -21,11 +27,24 @@ public class PlusOne {
 
             digits[i] = 0;
         }
-
+        // we're here because all the digits are nines
         int[] result = new int[digits.length + 1];
         result[0] = 1;
 
         return result;
+    }
+
+    public static void main(String[] args) {
+        int[] digits = new int[]{1, 2, 3};
+        int[] res = plusOne(digits);
+        for (int i : res) {
+            System.out.println(i);
+        }
+        int[] digits9 = new int[]{9, 9, 9};
+        int[] res9 = plusOne(digits9);
+        for (int i : res9) {
+            System.out.println(i);
+        }
     }
 
 }
