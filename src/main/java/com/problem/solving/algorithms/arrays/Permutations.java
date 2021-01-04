@@ -1,6 +1,45 @@
 package com.problem.solving.algorithms.arrays;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/*
+  Given an array nums of distinct integers, return all the possible permutations.
+  You can return the answer in any order.
+  https://www.youtube.com/watch?v=foBqt8E94mI&ab_channel=PrakashShukla
+ */
 public class Permutations {
+
+
+    // Use same solution of subset problem
+
+    public static List<List<Integer>> permute(int[] nums) {
+        List<List<Integer>> permutations = new ArrayList<>();
+        boolean[] used = new boolean[nums.length];
+        dfs(permutations, nums, new ArrayList<>(), used);
+        return permutations;
+    }
+
+    private static void dfs(List<List<Integer>> permutations, int[] nums, List<Integer> current, boolean[] used) {
+        if (current.size() == nums.length) {
+            permutations.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i] == false) {
+                used[i] = true;
+                current.add(nums[i]);
+                dfs(permutations, nums, current, used);
+                current.remove(current.size() - 1);
+                used[i] = false;
+            }
+        }
+
+    }
+
+
+
 
     /*
      TC O(N!) SC O(N)
@@ -51,7 +90,17 @@ public class Permutations {
     // Driver code
     public static void main(String args[]) {
         int a[] = {1, 2, 3};
-        heapPermutation(a, a.length, a.length);
+
+        //     heapPermutation(a, a.length, a.length);
+
+        // Back track way
+        List<List<Integer>> result = permute(a);
+        for (List<Integer> rs : result) {
+            for (Integer i : rs) {
+                System.out.print(i);
+            }
+            System.out.println();
+        }
     }
 
 }
