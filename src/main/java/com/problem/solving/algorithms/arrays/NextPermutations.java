@@ -4,6 +4,7 @@ package com.problem.solving.algorithms.arrays;
 Implement next permutation which rearranges numbers into the lexicographically next greater
 permutation of numbers.
 https://leetcode.com/problems/next-permutation/solution/
+https://www.youtube.com/watch?v=dMQcTJkypCg
  */
 public class NextPermutations {
 
@@ -20,20 +21,30 @@ public class NextPermutations {
     public static void nextPermutation(int[] nums) {
 
         int i = nums.length - 2;
-        while (i >= 0 && nums[i + 1] <= nums[i]) {
+        // Check order if it is in descending order then decrement index. We will find index from where we will partition
+        while (i >= 0 && nums[i] >= nums[i + 1]) {
             i--;
         }
+        // Check if whole array is in descending order means i reached to 0th index
+        if (i == 0) {
+            reverse(nums, 0);
+        }
+        // If i is greater than zero that means we need to partition it from ith index
         if (i >= 0) {
             int j = nums.length - 1;
+            // find index of number in right partition that is greater than number at iTH index
             while (j >= 0 && nums[j] <= nums[i]) {
                 j--;
             }
+            // swap i and j
             swap(nums, i, j);
         }
+        // Reverse right partition
         reverse(nums, i + 1);
 
     }
 
+    // If it is descending then reverse it
     private static void reverse(int[] nums, int start) {
         int i = start, j = nums.length - 1;
         while (i < j) {
@@ -49,4 +60,12 @@ public class NextPermutations {
         nums[j] = temp;
     }
 
+    public static void main(String[] args) {
+        int[] input = new int[]{1, 1, 5};
+        nextPermutation(input);
+        for (Integer i : input) {
+            System.out.print(i + " ");
+        }
+
+    }
 }
