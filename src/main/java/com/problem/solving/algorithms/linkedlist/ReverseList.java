@@ -1,5 +1,7 @@
 package com.problem.solving.algorithms.linkedlist;
 
+import com.problem.solving.algorithms.ProblemSolverUtils;
+
 import java.util.Objects;
 
 /**
@@ -29,5 +31,31 @@ public class ReverseList {
         Node rest = reverseList(next);
         next.next = head;
         return rest;
+    }
+
+    public static Node reverseIterative(Node head) {
+        // If list has only one element
+        if (Objects.isNull(head) || Objects.isNull(head.next)) {
+            return head;
+        }
+        Node current = head;
+        Node previous = null;
+        while (current != null) {
+
+            // Save next node of current node e.g 1 --> 2 --> 3
+            Node nextOfCurrent = current.next;
+            // Set current node to previous
+            current.next = previous;
+            previous = current;
+            // Set next of current node to next node
+            current = nextOfCurrent;
+
+        }
+
+        return previous;
+    }
+
+    public static void main(String[] args) {
+        reverseIterative(ProblemSolverUtils.createLinkedList());
     }
 }
