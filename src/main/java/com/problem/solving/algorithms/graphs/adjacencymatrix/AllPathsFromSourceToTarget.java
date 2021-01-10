@@ -6,6 +6,7 @@ import java.util.List;
 /*
 Given a directed acyclic graph (DAG) of n nodes labeled from 0 to n - 1, find all possible paths
 from node 0 to node n - 1, and return them in any order.
+https://www.youtube.com/watch?v=UjETrgholzQ
  */
 public class AllPathsFromSourceToTarget {
 
@@ -32,7 +33,11 @@ public class AllPathsFromSourceToTarget {
 
     }
 
-    // DFS
+    /* DFS
+    Time Complexity: O(2^N.N) : 2^N-1 -1 possible paths in the graph and for each path n-2 intermediate nodes i.e O(n) time to build path
+    SC : O(2^N.N)
+
+     */
     public static void dfs(int[][] graph, int source, int target, List<Integer> current, List<List<Integer>> result) {
 
         // If source and destination are equal then we found path and add it in result list
