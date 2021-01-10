@@ -1,9 +1,6 @@
 package com.problem.solving.algorithms.graphs.adjacencylist;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
 https://github.com/luckykumardev/leetcode-solution
@@ -27,36 +24,32 @@ public class ConnectedComponentsNumber {
         G gp = new G(5);
         gp.addEdge(0, 1);
         gp.addEdge(1, 2);
-        gp.addEdge(2, 3);
         gp.addEdge(3, 4);
         int counter = 0;
 
         boolean[] visited = new boolean[5];
-        // Apply DFS for all vertices
-        for (int v = 0; v < 5; v++) {
-            //Call DFS
-            if (!visited[v]) {
-                dfs(gp.graph, v, -1, visited);
-                counter++;
-            }
-        }
-        System.out.println(counter);
-    }
 
-    public static void dfs(Map<Integer, List<Integer>> graph, int currentNode, int pre, boolean[] visited) {
-        if (visited[currentNode]) {
-            return;
-        }
-        visited[currentNode] = true;
-        List<Integer> neighbors = graph.get(currentNode);
-        if (neighbors != null) {
-            for (Integer nei : neighbors) {
-                if (nei != pre) {
-                    dfs(graph, currentNode, pre, visited);
+        for (int i = 0; i < 5; i++) {
+            if (visited[i]) {
+                continue;
+            }
+            Queue<Integer> q = new LinkedList<>();
+            q.add(i);
+            while (!q.isEmpty()) {
+                int current = q.remove();
+                visited[current] = true;
+                List<Integer> neis = gp.graph.get(current);
+                if (neis != null) {
+                    for (int nei : neis) {
+                        if (visited[nei] == false) {
+                            q.add(nei);
+                        }
+                    }
                 }
             }
+            counter++;
         }
-
+        System.out.println(counter);
     }
 }
 
