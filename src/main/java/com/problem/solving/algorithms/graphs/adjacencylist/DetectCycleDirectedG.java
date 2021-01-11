@@ -2,7 +2,7 @@ package com.problem.solving.algorithms.graphs.adjacencylist;
 
 import java.util.*;
 
-public class DetectCycleUnDirectedG {
+public class DetectCycleDirectedG {
 
     public static void main(String[] args) {
         int[][] edges = new int[][]{
