@@ -44,6 +44,7 @@ public class DetectCycleDirectedG {
 
     }
 
+    // not working
     public static boolean iterativeDFS(Stack<Integer> stack, Map<Integer, List<Integer>> graph, Set<Integer> seen) {
         while (!stack.isEmpty()) {
             int parent = 0;
