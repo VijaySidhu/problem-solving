@@ -10,7 +10,7 @@ public class UniquePath {
     // Depth first search us straight forward but is too expensive
     public static void main(String[] args) {
         System.out.println(uniqueuePaths(3, 3));
-        System.out.println(uniquePathsNonRecursive(3, 3));
+        System.out.println(uniquePathsNonRecursive(5, 5));
 
     }
 
