@@ -10,38 +10,35 @@ convert word1 to word2. You have the following three operations permitted on a w
 public class EditDistance {
 
     public static void main(String[] args) {
-        System.out.println(minDistance("horse", "ros"));
+        System.out.println(editDistanceDP("horse", "ros"));
     }
 
-    public static int minDistance(String word1, String word2) {
-        int m = word1.length();
-        int n = word2.length();
-
+    public static int editDistanceDP(String wordOne, String wordTwo) {
+        int m = wordOne.length();
+        int n = wordTwo.length();
         int[][] dp = new int[m + 1][n + 1];
 
+        //Fill cols
+        for (int i = 0; i <= n; i++) {
+            dp[0][i] = i;
+        }
+        // Fill rows
         for (int i = 0; i <= m; i++) {
             dp[i][0] = i;
         }
 
-        for (int i = 0; i <= n; i++) {
-            dp[0][i] = i;
-        }
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (word1.charAt(i) == word2.charAt(j)) {
-                    dp[i + 1][j + 1] = dp[i][j];
+        // first element
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                // If match case... get primary diagonal cell i-1 and j-1
+                if (wordOne.charAt(i - 1) == wordTwo.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1]; // previous row and previous col
                 } else {
-                    int a = dp[i][j];
-                    int b = dp[i][j + 1];
-                    int c = dp[i + 1][j];
-
-                    dp[i + 1][j + 1] = Math.min(a, Math.min(b, c));
-                    dp[i + 1][j + 1]++;
+                    // If not matching take the minimum value left top and primary diagonal cell
+                    dp[i][j] = 1 + Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1]));
                 }
             }
         }
-
         return dp[m][n];
     }
 }
