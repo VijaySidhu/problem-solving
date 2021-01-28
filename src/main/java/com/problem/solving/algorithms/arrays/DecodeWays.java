@@ -4,7 +4,7 @@ public class DecodeWays {
 
     public static void main(String[] args) {
         String str = "226";
-        System.out.println(decodeWays(str));
+        System.out.println(decodeWaysP(str));
     }
 
     public static int decodeWays(String str) {
@@ -29,6 +29,29 @@ public class DecodeWays {
             if (twoDigits >= 10 && twoDigits <= 26) {
                 dp[i] += dp[i - 2];
             }
+        }
+        return dp[str.length()];
+    }
+
+    private static int decodeWaysP(String str) {
+        int[] dp = new int[str.length() + 1];
+
+        dp[0] = 1;
+        dp[1] = str.charAt(0) == '0' ? 0 : 1;
+
+        //
+        for (int i = 2; i <= str.length(); i++) {
+
+            int oneDigit = Integer.valueOf(str.substring(i - 1, i));
+            int twoDigit = Integer.valueOf(str.substring(i - 2, i));
+
+            if (oneDigit >= 1) {
+                dp[i] = dp[i] + dp[i - 1];
+            }
+            if (twoDigit <= 26 && twoDigit > 9) {
+                dp[i] = dp[i] + dp[i - 2];
+            }
+
         }
         return dp[str.length()];
     }

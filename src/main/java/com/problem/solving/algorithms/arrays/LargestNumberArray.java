@@ -5,6 +5,12 @@ import java.util.Comparator;
 
 public class LargestNumberArray {
 
+    public static void main(String[] args) {
+        LargestNumberArray la = new LargestNumberArray();
+        int[] nums = new int[]{12, 11, 13, 2, 3};
+        System.out.println(la.largestNumber(nums));
+
+    }
 
     public String largestNumber(int[] nums) {
         // Get input integers as strings.

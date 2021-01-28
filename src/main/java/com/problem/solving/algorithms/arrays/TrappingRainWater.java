@@ -1,6 +1,6 @@
 package com.problem.solving.algorithms.arrays;
 
-public class WaterArea {
+public class TrappingRainWater {
 
     /*
        1. Take two pointers. First pointer points at starting position of an array and second one points at last element
@@ -13,32 +13,33 @@ public class WaterArea {
      */
     // TC O(n) SC O(1)
 
-    public static int waterArea(int[] height) {
-        if (height.length == 0) {
+    public static int waterArea(int[] heights) {
+        if (heights == null || heights.length == 0) {
             return 0;
         }
-        int water = 0;
 
-        int leftIndex = 0;
-        int rightIndex = height.length - 1;
-
-        int leftMax = 0;
-        int rightMax = 0;
-
-        while (leftIndex <= rightIndex) {
-            leftMax = Math.max(leftMax, height[leftIndex]);
-            rightMax = Math.max(rightMax, height[rightIndex]);
-
-            if (leftMax < rightMax) {
-                water += leftMax - height[leftIndex];
-                leftIndex++;
+        int left = 0, right = heights.length - 1;
+        int left_max = 0, right_max = 0;
+        int ans = 0;
+        while (left < right) {
+            if (heights[left] < heights[right]) {
+                if (heights[left] >= left_max) {
+                    left_max = heights[left];
+                } else {
+                    ans += left_max - heights[left];
+                }
+                left++;
             } else {
-                water += rightMax - height[rightIndex];
-                rightIndex--;
+                if (heights[right] >= right_max) {
+                    right_max = heights[right];
+                } else {
+                    ans += right_max - heights[right];
+                }
+                right--;
             }
         }
 
-        return water;
+        return ans;
     }
 
     public static void main(String[] args) {
