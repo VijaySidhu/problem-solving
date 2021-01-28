@@ -3,13 +3,20 @@ package com.problem.solving.algorithms.arrays;
 public class TrappingRainWater {
 
     /*
-       1. Take two pointers. First pointer points at starting position of an array and second one points at last element
-       2. Iterate an array and do the following
-            i.  Find maximum height left bar
-            ii. Find maximum height right bar
-                 If left bar height is less than right bar height increment left pointer and calculate area
-                 ELSE decrement right index and calculate water area
-       3. Return calculated water area
+       Algorithm
+                    Initialize left pointer to 0 and right pointer to size-1
+                    While left < right, do:
+                        If height[left] is smaller than height[right]
+                            If height[left] >= left_max, update left_max
+                            Else add left_max−height[left] to ans
+                            move left to the next position (left++).
+                        Else
+                            If height[right] >= right_max, update right_maxright_max
+                            Else add right_max−height[right] to ans
+                            move right to the next position (right--).
+    Complexity analysis
+	Time  complexity: O(n). Single iteration of O(n).
+	Space complexity: O(1). Only constant space required for left, right, left_max and right_max.
      */
     // TC O(n) SC O(1)
 
