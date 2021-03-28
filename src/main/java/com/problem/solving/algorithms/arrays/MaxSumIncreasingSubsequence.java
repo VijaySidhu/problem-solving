@@ -1,7 +1,9 @@
 package com.problem.solving.algorithms.arrays;
 
 import java.util.Arrays;
-
+/*
+O(N^2)
+ */
 public class MaxSumIncreasingSubsequence {
     public static void main(String[] args) {
         int[] input = new int[]{1, 2, 3};
