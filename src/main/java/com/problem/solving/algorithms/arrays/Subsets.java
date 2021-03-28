@@ -3,12 +3,13 @@ package com.problem.solving.algorithms.arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
+// Leet code 78
 public class Subsets {
     /*
     Time complexity: O(N X2^N) to generate all subsets and then copy them into output list.
     Space complexity:O(N X 2^N) to keep all the subsets of length N, since each of N elements
     could be present or absent.
+    https://www.youtube.com/watch?v=taIvqOIT3cM&ab_channel=codebix
      */
     public static void main(String[] args) {
         int[] num = new int[]{1, 2, 3,};
@@ -38,7 +39,6 @@ public class Subsets {
     // current is list identified for given index
     private static void dfs(List<List<Integer>> subset, int index, int[] nums, List<Integer> current) {
         // Add current create list for index into final list
-        if (current.size() > 0)
             subset.add(new ArrayList<>(current));
 
         // Iterate from index to length of array

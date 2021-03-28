@@ -22,13 +22,15 @@ public class CombinationSum {
     }
 
     /*
+    Leetcode 39
+    https://www.youtube.com/watch?v=xn1tj7VUu4Y&ab_channel=CodingDoor
     Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
 
     Each number in candidates may only be used once in the combination.
 
     Note: The solution set must not contain duplicate combinations.
-    TC  O(k * 2^N), where k is the average length of each possible solution. Copying such a possible solution list takes O(k) time.
-    SC 2^N each element is used once
+    TC  O(N^(T/m+1))
+    SC O(T/m)
      */
     public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> results = new ArrayList<>();
@@ -68,6 +70,12 @@ public class CombinationSum {
         }
     }
 
+    /*
+    Leetcode 377
+    Given an array of distinct integers nums and a target integer target, return the number of possible combinations
+    that add up to target.
+    The answer is guaranteed to fit in a 32-bit integer.
+     */
     public int combinationSum4(int[] nums, int target) {
         int[] dp = new int[target + 1];
         dp[0] = 1;

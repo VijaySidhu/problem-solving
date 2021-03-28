@@ -38,4 +38,36 @@ public class RotateImage {
             }
         }
     }
+
+
+    // Second method
+    /*
+    1. Transpose matrix
+    2. Reverse Row
+    TC O(M) for transpose and O(M) for reverse
+    SC O(1) In place rotation
+
+     */
+    public void transpose(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = i; j < matrix[0].length; j++) {
+                int temp = matrix[j][i];
+                matrix[j][i] = matrix[i][j];
+                matrix[i][j] = temp;
+            }
+        }
+    }
+
+    public void reflect(int[][] matrix) {
+        int n = matrix.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][n - j - 1];
+                matrix[i][n - j - 1] = temp;
+            }
+
+        }
+    }
 }
