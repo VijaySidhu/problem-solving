@@ -1,5 +1,12 @@
 package com.problem.solving.algorithms.arrays;
 
+/**
+
+ * Given a string s containing only digits, return the number of ways to decode it. leetcode 91
+ * we are using an array dp to save the results for future. As we move ahead character by character of the given string, we look
+ * back only two steps. For calculating dp[i] we need to know dp[i-1] and dp[i-2] only.
+ * Thus, we can easily cut down our O(N) space requirement to O(1) by using only two variables to store the last two results.
+ */
 public class DecodeWays {
 
     public static void main(String[] args) {
