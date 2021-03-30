@@ -3,6 +3,7 @@ package com.problem.solving.algorithms.arrays;
 import java.util.Stack;
 
 /*
+Leet code 71
     Given an absolute path for a file (Unix-style), simplify it.
     Or in other words, convert it to the canonical path.
  */
