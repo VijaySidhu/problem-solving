@@ -2,6 +2,10 @@ package com.problem.solving.algorithms.arrays;
 
 import java.util.Arrays;
 
+/**
+ * Leetcode 300 Given an integer array nums,
+ * return the length of the longest strictly increasing subsequence.
+ */
 public class LongestIncreasingSubsequence {
 
     /*Time complexity : O(nlogn). Binary search takes nlogn time and it is called n times.
@@ -25,6 +29,7 @@ public class LongestIncreasingSubsequence {
         int[] dp = new int[nums.length];
         int len = 0;
         for (int num : nums) {
+            // Index of num
             int i = Arrays.binarySearch(dp, 0, len, num);
             if (i < 0) {
                 i = -(i + 1);
