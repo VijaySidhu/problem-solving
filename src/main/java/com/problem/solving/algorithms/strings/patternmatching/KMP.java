@@ -1,6 +1,6 @@
 package com.problem.solving.algorithms.strings.patternmatching;
 
-/*
+/*https://www.youtube.com/watch?v=OY5ZUNC6hx8
 The basic idea behind KMP’s algorithm is: whenever we detect a mismatch
 (after some matches), we already know some of the characters in the text
  of the next window. We take advantage of this information to avoid
