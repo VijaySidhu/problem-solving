@@ -1,41 +1,59 @@
 package com.problem.solving.algorithms.trees;
 
+import java.util.HashMap;
+import java.util.Map;
+/*
+TC O(N)
+SC O(N)
+ */
+// leetcode 106
 // https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/discuss/987878/Java-1ms-faster-than-96
 public class ConstructBinaryTreeFromInOrderPostOrder {
+    int post_idx;
+    int[] postorder;
+    int[] inorder;
+    HashMap<Integer, Integer> idx_map = new HashMap<Integer, Integer>();
 
-    public static BinTreeNode buildTree(int[] inorder, int[] postorder) {
-        if (postorder.length == 0 || postorder.length != inorder.length)
+    public TreeNode helper(int in_left, int in_right) {
+        // if there is no elements to construct subtrees
+        if (in_left > in_right)
             return null;
 
+        // pick up post_idx element as a root
+        int root_val = postorder[post_idx];
+        TreeNode root = new TreeNode(root_val);
 
-        return buildTree(postorder, 0, postorder.length - 1, inorder, 0, inorder.length - 1);
+        // root splits inorder list
+        // into left and right subtrees
+        int index = idx_map.get(root_val);
+
+        // recursion
+        post_idx--;
+        // build right subtree
+        root.right = helper(index + 1, in_right);
+        // build left subtree
+        root.left = helper(in_left, index - 1);
+        return root;
     }
 
-    public static BinTreeNode buildTree(int[] post, int start1, int end1, int[] in, int start2, int end2) {
-        if (start1 > end1 || start2 > end2)
-            return null;
-        // Get element from post order that will be root node because is post order root is at the end
-        int val = post[end1];
-        // off set represents index of root node in inOrder array
-        int offset = start2;
-        // Build root node
-        BinTreeNode cur = new BinTreeNode(val);
-        // search index of val in inorder
-        for (; offset < end2; offset++) {
-            if (in[offset] == val)
-                break;
-        }
-        cur.left = buildTree(post, start1, start1 + offset - start2 - 1, in, start2, offset - 1);
-        cur.right = buildTree(post, start1 + offset - start2, end1 - 1, in, offset + 1, end2);
-        return cur;
-    }
+    public TreeNode buildTree(int[] inorder, int[] postorder) {
+        this.postorder = postorder;
+        this.inorder = inorder;
+        // start from the last postorder element
+        post_idx = postorder.length - 1;
 
-    static class BinTreeNode {
+        // build a hashmap value -> its index
+        int idx = 0;
+        for (Integer val : inorder)
+            idx_map.put(val, idx++);
+        return helper(0, inorder.length - 1);
+    }
+    static class TreeNode {
         int data;
-        BinTreeNode left;
-        BinTreeNode right;
+        TreeNode left;
+        TreeNode right;
 
-        public BinTreeNode(int data) {
+        public TreeNode(int data) {
             this.data = data;
         }
     }

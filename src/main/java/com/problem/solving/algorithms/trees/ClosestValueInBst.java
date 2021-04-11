@@ -1,8 +1,29 @@
 package com.problem.solving.algorithms.trees;
 
 import com.problem.solving.algorithms.ProblemSolverUtils;
-
+// Leetcode 270
 public class ClosestValueInBst {
+
+    /*
+    Iterative
+    TC O(H)
+    SC O(1)
+     */
+    public static int closestValue(NodeBST root, double target){
+        int value;
+        int closest = root.key;
+        while(root!=null){
+            value = root.key;
+            closest = Math.abs(value-target)<Math.abs(closest-target) ? value : closest;
+            if(target<closest && root.left!=null){
+                root = root.left;
+
+            }else if(target>closest && root.right!=null){
+                root = root.right;
+            }
+        }
+        return closest;
+    }
 
     /*
        Average: O(log(n) time | Space O(log(n)

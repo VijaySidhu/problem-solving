@@ -1,12 +1,13 @@
 package com.problem.solving.algorithms.arrays;
-
+// Leetcode 63
 public class UniquePathWithObstacles {
 
     /*
         1. If the first cell i.e. obstacleGrid[0,0] contains 1, this means there is an obstacle in the first cell.
            Hence the robot won't be able to make any move and we would return the number of ways as 0.
         2. Otherwise, if obstacleGrid[0,0] has a 0 originally we set it to 1 and move ahead.
-        3. Iterate the first row. If a cell originally contains a 1, this means the current cell has an obstacle and shouldn't contribute to any path.
+        3. Iterate the first row. If a cell originally contains a 1, this means the current cell has an obstacle and
+           shouldn't contribute to any path.
            Hence, set the value of that cell to 0. Otherwise, set it to the value of previous cell
            i.e. obstacleGrid[i,j] = obstacleGrid[i,j-1]
         4. Iterate the first column. If a cell originally contains a 1, this means the current cell has an obstacle and shouldn't
