@@ -9,18 +9,18 @@ import java.util.HashMap;
     Input: nums = [3,2,4], target = 6
     Output: [1,2]
  */
-public class TwoSum {
+public class TwoSum_2 {
 
   public static void main(String[] args) {
     int[] input = {3, 2, 4};
     int target = 6;
-    int[] result = TwoSum.twoSumIndexReturn(input, target);
+    int[] result = TwoSum_2.twoSumIndexReturn(input, target);
     for (int i = 0; i < result.length; i++) {
       System.out.print(result[i] + " ");
     }
   }
 
-  /* One pass hashmap
+  /* One pass hashmap Leetcode 167
      Time complexity : O(n).
      Space complexity : O(n).
 

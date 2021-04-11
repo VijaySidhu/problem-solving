@@ -9,12 +9,13 @@ public class ThreeSumClosest {
      */
 
     /* O(n^2)
-     1. Sort the given array.
-     2. Loop over the array and fix the first element of the possible triplet, arr[i]
-     3. Then fix two pointers, one at i+1 and the other at n-1. And look at the sum,
-        * If the sum is smaller than the sum we need to get to, we increase the first pointer.
-        * Else,If the sum is bigger, Decrease the end pointer to reduce the sum.
-        * Update the closest sum found so far.
+     1. Sort the given array. (Quick Sort)
+        In the sorted array, we process each value from left to right. For value v,
+        we need to find a pair which sum, ideally, is equal to target - v. We will
+        follow the same two pointers approach as for 3Sum, however, since this 'ideal'
+        pair may not exist, we will track the smallest absolute difference between the sum and
+        the target. The two pointers approach naturally enumerates pairs so that the sum moves
+        toward the target.
      */
     public static void main(String[] args) {
         int[] nums = new int[]{-1, 2, 1, -4};

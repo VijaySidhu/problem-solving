@@ -42,7 +42,7 @@ public class RegularExpressionMatching {
             if (j < m && txt[i] == pat[j]) {
                 i++;
                 j++;
-            } else if (j < m && pat[j] == '?') {
+            } else if (j < m && pat[j] == '.') {
                 i++;
                 j++;
             } else if (j < m && pat[j] == '*') {

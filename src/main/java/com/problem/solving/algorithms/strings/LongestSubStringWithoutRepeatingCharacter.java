@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /*
+Leetcode 3
 Given a string, find the length of the longest substring without repeating characters.
 
 Example 1:
@@ -17,7 +18,7 @@ Input: "bbbbb"
 Output: 1
 Explanation: The answer is "b", with the length of 1.
  */
-public class LongestSubString {
+public class LongestSubStringWithoutRepeatingCharacter {
 
   public static void main(String[] args) {
 

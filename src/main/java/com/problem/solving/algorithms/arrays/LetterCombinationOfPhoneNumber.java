@@ -5,56 +5,55 @@ import java.util.*;
 public class LetterCombinationOfPhoneNumber {
 
     public static void main(String[] args) {
-        int[] number = {2, 3};
-        int n = number.length;
 
         // Funciton call
-        letterCombinations(number, n);
+        List<String> result = letterCombinations("23");
+        for (String s : result) {
+            System.out.println(s);
+        }
+
     }
 
-    // Function that creates the mapping and
-    // calls letterCombinationsUtil
-    static void letterCombinations(int[] number, int n) {
-        // table[i] stores all characters that
-        // corresponds to ith digit in phone
-        String[] table
-                = {"0", "1", "abc", "def", "ghi",
-                "jkl", "mno", "pqrs", "tuv", "wxyz"};
 
-        ArrayList<String> list
-                = letterCombinationsUtil(number, n, table);
+    public static List<String> letterCombinations(String digits) {
+        List<String> combinations = new ArrayList<>();
+        Map<Character, String> letters = new HashMap<>();
+        letters.put('2', "abc");
+        letters.put('3', "def");
+        letters.put('4', "ghi");
+        letters.put('5', "jkl");
+        letters.put('6', "mno");
+        letters.put('7', "pqrs");
+        letters.put('8', "tuv");
+        letters.put('9', "wxyz");
+        String phoneDigits;
+        // If the input is empty, immediately return an empty answer array
+        if (digits.length() == 0) {
+            return combinations;
+        }
 
-        // Print the contents of the list
-        for (int i = 0; i < list.size(); i++) {
-            System.out.print(list.get(i) + " ");
+        // Initiate backtracking with an empty path and starting index of 0
+        backtrack(0, new StringBuilder(), digits, combinations, letters);
+        return combinations;
+    }
+
+
+    private static void backtrack(int index, StringBuilder path, String phoneDigits, List<String> combinations, Map<Character, String> letters) {
+        // If the path is the same length as digits, we have a complete combination
+        if (path.length() == phoneDigits.length()) {
+            combinations.add(path.toString());
+            return; // Backtrack
+        }
+
+        // Get the letters that the current digit maps to, and loop through them
+        String possibleLetters = letters.get(phoneDigits.charAt(index));
+        for (char letter : possibleLetters.toCharArray()) {
+            // Add the letter to our current path
+            path.append(letter);
+            // Move on to the next digit
+            backtrack(index + 1, path, phoneDigits, combinations, letters);
+            // Backtrack by removing the letter before moving onto the next
+            path.deleteCharAt(path.length() - 1);
         }
     }
-
-    static ArrayList<String>
-    letterCombinationsUtil(int[] number, int n,
-                           String[] table) {
-        // To store the generated letter combinations
-        ArrayList<String> list = new ArrayList<>();
-
-        Queue<String> q = new LinkedList<>();
-        q.add("");
-
-        while (!q.isEmpty()) {
-            String s = q.remove();
-
-            // If complete word is generated
-            // push it in the list
-            if (s.length() == n)
-                list.add(s);
-            else {
-                String val = table[number[s.length()]];
-                for (int i = 0; i < val.length(); i++) {
-                    q.add(s + val.charAt(i));
-                }
-            }
-        }
-        return list;
-    }
-
-
 }
